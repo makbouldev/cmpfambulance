@@ -1,0 +1,26 @@
+[
+  {
+    "id": "a112443e-66a4-4f27-a657-40e2e697e208",
+    "title": "Que Faire en Cas d Urgence Medicale a Domicile ?",
+    "excerpt": "Les reflexes essentiels avant l arrivee de l ambulance.",
+    "content": "Garder le calme, donner des informations claires et preparer les documents utiles permet une prise en charge plus rapide.",
+    "image": "/3.jpeg",
+    "category": "Urgence",
+    "author": "CMPF Team",
+    "published": true,
+    "createdAt": "2026-02-12T10:00:00.000Z",
+    "updatedAt": "2026-02-12T10:00:00.000Z"
+  },
+  {
+    "id": "8b11b294-edad-4ee9-883e-be11c45a23e3",
+    "title": "Transport Dialyse: Comment Bien Organiser les Trajets",
+    "excerpt": "Planification, ponctualite et confort du patient.",
+    "content": "Une bonne organisation des horaires et un suivi regulier ameliorent l experience du patient et de sa famille.",
+    "image": "/6.jpeg",
+    "category": "Transport",
+    "author": "CMPF Team",
+    "published": true,
+    "createdAt": "2026-02-10T10:00:00.000Z",
+    "updatedAt": "2026-02-10T10:00:00.000Z"
+  }
+]

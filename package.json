@@ -1,0 +1,16 @@
+{
+  "name": "ambulance",
+  "version": "1.0.0",
+  "private": true,
+  "description": "CMPF Assistance full-stack website",
+  "scripts": {
+    "dev": "concurrently \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
+    "dev:client": "npm run dev --prefix client",
+    "dev:server": "npm run dev --prefix server",
+    "build": "npm run build --prefix client",
+    "start": "npm run start --prefix server"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
