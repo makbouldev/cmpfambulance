@@ -9,7 +9,7 @@ export const fallbackData = {
       'Sur un simple appel et a tout moment, la CMPF intervient pour le transport, le rapatriement sanitaire et l assistance medicale avec rapidite et promptitude.',
     ctaPrimary: 'Demander une Assistance',
     ctaSecondary: 'Voir Tous Les Services',
-    backgroundImage: '/hero.jpeg'
+    backgroundImage: 'hero.jpeg'
   },
   services: [
     {
@@ -57,35 +57,35 @@ export const fallbackData = {
     heading: '',
     content: '',
     image:
-      '/1.jpeg'
+      ''
   },
   fleet: [
     {
       name: 'Ambulance Urgence',
       image:
-        '/2.jpeg',
+        '',
       details: ['Intervention immediate', 'Materiel de premiers soins', 'Prise en charge 24/7', 'Equipe qualifiee']
     },
     {
       name: 'Ambulance Medicalisee',
       image:
-        '/3.jpeg',
+        '',
       details: ['Monitoring medical', 'Oxygene et equipements', 'Accompagnement medical', 'Transport securise']
     },
     {
       name: 'Transport Specialise',
       image:
-        '/4.jpeg',
+        '',
       details: ['Couveuse', 'Dialyse', 'Rapatriement', 'Evacuation locoregionale']
     }
   ],
   gallery: [
-    '/5.jpeg',
-    '/6.jpeg',
-    '/7.jpeg',
-    '/8.jpeg',
-    '/9.jpeg',
-    '/10.jpeg'
+    '',
+    '',
+    '',
+    '',
+    '',
+    ''
   ],
   stats: [
     { label: 'Assistance Disponible', value: '24/7' },
@@ -111,6 +111,7 @@ export const fallbackData = {
     }
   ]
 };
+
 
 
 

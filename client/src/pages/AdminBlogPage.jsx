@@ -7,7 +7,7 @@ const emptyForm = {
   title: '',
   excerpt: '',
   content: '',
-  image: '/5.jpeg',
+  image: '',
   category: 'Generale',
   author: 'Equipe CMPF',
   published: true
@@ -45,7 +45,7 @@ function AdminBlogPage() {
     heroSubtitle: '',
     heroCtaPrimary: '',
     heroCtaSecondary: '',
-    heroBackgroundImage: '/hero.jpeg'
+    heroBackgroundImage: 'hero.jpeg'
   });
 
   const isEditing = useMemo(() => Boolean(editingId), [editingId]);
@@ -56,7 +56,7 @@ function AdminBlogPage() {
   );
 
   const resolveImage = (value) => {
-    if (!value) return '/5.jpeg';
+    if (!value) return '';
     if (value.startsWith('/uploads/')) return `${apiBaseUrl}${value}`;
     return value;
   };
@@ -104,7 +104,7 @@ function AdminBlogPage() {
       heroSubtitle: payload.hero?.subtitle || '',
       heroCtaPrimary: payload.hero?.ctaPrimary || '',
       heroCtaSecondary: payload.hero?.ctaSecondary || '',
-      heroBackgroundImage: payload.hero?.backgroundImage || '/hero.jpeg'
+      heroBackgroundImage: payload.hero?.backgroundImage || 'hero.jpeg'
     });
   };
 
@@ -307,7 +307,7 @@ function AdminBlogPage() {
       title: post.title || '',
       excerpt: post.excerpt || '',
       content: post.content || '',
-      image: post.image || '/5.jpeg',
+      image: post.image || '',
       category: post.category || 'Generale',
       author: post.author || 'Equipe CMPF',
       published: post.published !== false
@@ -633,4 +633,5 @@ function AdminBlogPage() {
 }
 
 export default AdminBlogPage;
+
 

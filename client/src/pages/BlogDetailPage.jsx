@@ -13,7 +13,7 @@ function BlogDetailPage() {
   const [notFound, setNotFound] = useState(false);
 
   const resolveImage = (value) => {
-    if (!value) return '/5.jpeg';
+    if (!value) return '';
     if (value.startsWith('/uploads/')) return `${apiBaseUrl}${value}`;
     return value;
   };
@@ -152,5 +152,6 @@ function BlogDetailPage() {
 }
 
 export default BlogDetailPage;
+
 
 

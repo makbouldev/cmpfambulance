@@ -14,7 +14,7 @@ function MedicalCounterVisitPage() {
         <div className="container">
           <div className="row g-4 align-items-center">
             <div className="col-lg-6 order-lg-2">
-              <img src="/9.jpeg" alt="Contre visite medicale CMPF" className="img-fluid about-image" />
+              <img src="9.jpeg" alt="Contre visite medicale CMPF" className="img-fluid about-image" />
             </div>
             <div className="col-lg-6 order-lg-1">
               <h2 className="section-title text-start mb-3">Service de Controle Medical</h2>
@@ -56,3 +56,4 @@ function MedicalCounterVisitPage() {
 }
 
 export default MedicalCounterVisitPage;
+

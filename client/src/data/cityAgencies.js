@@ -9,7 +9,7 @@ export const cityAgencies = [
     mobile: '+212 6 62 02 82 49',
     email: 'cmpfcasa@cmpfassistance.ma',
     responseTime: '8-12 min',
-    heroImage: '/1.jpeg'
+    heroImage: ''
   },
   {
     slug: 'casablanca',
@@ -21,7 +21,7 @@ export const cityAgencies = [
     mobile: '+212 6 61 50 27 63',
     email: 'cmpfcasa@cmpfassistance.ma',
     responseTime: '7-10 min',
-    heroImage: '/2.jpeg'
+    heroImage: ''
   },
   {
     slug: 'fes',
@@ -33,7 +33,7 @@ export const cityAgencies = [
     mobile: '+212 6 61 79 95 69',
     email: 'cmpfcasa@cmpfassistance.ma',
     responseTime: '10-14 min',
-    heroImage: '/3.jpeg'
+    heroImage: ''
   },
   {
     slug: 'laayoune',
@@ -45,7 +45,7 @@ export const cityAgencies = [
     mobile: '+212 6 78 98 90 04',
     email: 'cmpfcasa@cmpfassistance.ma',
     responseTime: '12-16 min',
-    heroImage: '/4.jpeg'
+    heroImage: ''
   },
   {
     slug: 'marrakech',
@@ -57,7 +57,7 @@ export const cityAgencies = [
     mobile: '+212 6 62 01 81 98',
     email: 'cmpfcasa@cmpfassistance.ma',
     responseTime: '8-12 min',
-    heroImage: '/5.jpeg'
+    heroImage: ''
   },
   {
     slug: 'meknes',
@@ -69,7 +69,7 @@ export const cityAgencies = [
     mobile: '+212 6 62 03 14 97',
     email: 'cmpfcasa@cmpfassistance.ma',
     responseTime: '10-14 min',
-    heroImage: '/6.jpeg'
+    heroImage: ''
   },
   {
     slug: 'nador',
@@ -81,7 +81,7 @@ export const cityAgencies = [
     mobile: '+212 6 62 03 01 79',
     email: 'cmpfcasa@cmpfassistance.ma',
     responseTime: '11-15 min',
-    heroImage: '/7.jpeg'
+    heroImage: ''
   },
   {
     slug: 'ouarzazate',
@@ -93,7 +93,7 @@ export const cityAgencies = [
     mobile: '+212 6 61 85 65 13',
     email: 'cmpfcasa@cmpfassistance.ma',
     responseTime: '12-16 min',
-    heroImage: '/8.jpeg'
+    heroImage: ''
   },
   {
     slug: 'oujda',
@@ -105,7 +105,7 @@ export const cityAgencies = [
     mobile: '+212 6 61 08 84 13',
     email: 'cmpfcasa@cmpfassistance.ma',
     responseTime: '10-14 min',
-    heroImage: '/9.jpeg'
+    heroImage: ''
   },
   {
     slug: 'rabat',
@@ -117,7 +117,7 @@ export const cityAgencies = [
     mobile: '+212 6 61 08 84 44',
     email: 'cmpfcasa@cmpfassistance.ma',
     responseTime: '7-10 min',
-    heroImage: '/10.jpeg'
+    heroImage: ''
   },
   {
     slug: 'tanger',
@@ -129,7 +129,7 @@ export const cityAgencies = [
     mobile: '+212 6 61 08 84 40',
     email: 'cmpfcasa@cmpfassistance.ma',
     responseTime: '8-12 min',
-    heroImage: '/1.jpeg'
+    heroImage: ''
   },
   {
     slug: 'tetouan',
@@ -141,8 +141,9 @@ export const cityAgencies = [
     mobile: '+212 6 62 02 21 08',
     email: 'cmpfcasa@cmpfassistance.ma',
     responseTime: '10-14 min',
-    heroImage: '/2.jpeg'
+    heroImage: ''
   }
 ];
 
 export const getCityAgencyBySlug = (slug) => cityAgencies.find((city) => city.slug === slug);
+

@@ -147,7 +147,7 @@ function HomePage() {
         title="Ambulance et Assistance Medicale 24/7"
         description="CMPF Assistance intervient rapidement pour transport medical, rapatriement sanitaire, assistance a domicile et couverture evenementielle au Maroc."
         path="/"
-        image="/hero.jpeg"
+        image="hero.jpeg"
         keywords="ambulance maroc, assistance medicale, rapatriement sanitaire, ambulance casablanca, transport medical urgent"
         structuredData={[
           buildOrganizationSchema(content),
@@ -267,7 +267,7 @@ function HomePage() {
             >
               <div className="ops-photo-wrap">
                 <img
-                  src="/7.jpeg"
+                  src="7.jpeg"
                   alt="Supervision equipe CMPF"
                   className="ops-photo"
                 />
@@ -512,5 +512,6 @@ function HomePage() {
 }
 
 export default HomePage;
+
 
 

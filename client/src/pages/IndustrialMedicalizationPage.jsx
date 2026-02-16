@@ -14,7 +14,7 @@ function IndustrialMedicalizationPage() {
         <div className="container">
           <div className="row g-4 align-items-center">
             <div className="col-lg-6">
-              <img src="/8.jpeg" alt="Medicalisation des sites industriels CMPF" className="img-fluid about-image" />
+              <img src="8.jpeg" alt="Medicalisation des sites industriels CMPF" className="img-fluid about-image" />
             </div>
             <div className="col-lg-6">
               <h2 className="section-title text-start mb-3">Presence Medicale Sur Site</h2>
@@ -56,3 +56,4 @@ function IndustrialMedicalizationPage() {
 }
 
 export default IndustrialMedicalizationPage;
+

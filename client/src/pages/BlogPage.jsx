@@ -9,7 +9,7 @@ function BlogPage() {
   const { apiBaseUrl } = useSiteData();
   const [blogPosts, setBlogPosts] = useState([]);
   const resolveImage = (value) => {
-    if (!value) return '/5.jpeg';
+    if (!value) return '';
     if (value.startsWith('/uploads/')) return `${apiBaseUrl}${value}`;
     return value;
   };
@@ -32,7 +32,7 @@ function BlogPage() {
         title="Blog Ambulance et Assistance"
         description="Conseils, guides et actualites pratiques autour de l ambulance, du transport medical, du rapatriement sanitaire et de l assistance CMPF."
         path="/blog"
-        image="/8.jpeg"
+        image="8.jpeg"
         keywords="blog ambulance, conseils urgence medicale, transport dialyse, rapatriement sanitaire"
         structuredData={[
           buildWebPageSchema({
@@ -95,4 +95,5 @@ function BlogPage() {
 }
 
 export default BlogPage;
+
 

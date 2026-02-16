@@ -9,7 +9,7 @@ export const useSiteContent = () => {
     ...data,
     hero: {
       ...(data?.hero || {}),
-      backgroundImage: data?.hero?.backgroundImage || '/hero.jpeg'
+      backgroundImage: data?.hero?.backgroundImage || 'hero.jpeg'
     }
   });
 
@@ -28,3 +28,4 @@ export const useSiteContent = () => {
 
   return { content, apiBaseUrl };
 };
+

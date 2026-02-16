@@ -14,7 +14,7 @@ const missions = [
 function GalleryPage() {
   const { content, apiBaseUrl } = useSiteData();
   const resolveImage = (value) => {
-    if (!value) return '/5.jpeg';
+    if (!value) return '';
     if (value.startsWith('/uploads/')) return `${apiBaseUrl}${value}`;
     return value;
   };
@@ -105,4 +105,5 @@ function GalleryPage() {
 }
 
 export default GalleryPage;
+
 
