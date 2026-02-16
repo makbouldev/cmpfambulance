@@ -120,6 +120,17 @@ function HomePage() {
     return `https://www.google.com/maps?q=${query}&z=11&output=embed`;
   }, [selectedCity]);
 
+  const openQuickBookPanel = (detail, event) => {
+    if (event) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+    // Delay dispatch one tick to avoid immediate overlay close from the same click event.
+    window.setTimeout(() => {
+      window.dispatchEvent(new CustomEvent('cmpf-open-book-panel', { detail }));
+    }, 0);
+  };
+
   const scrollToHomeMap = () => {
     requestAnimationFrame(() => {
       homeMapSectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -463,18 +474,17 @@ function HomePage() {
                   <button
                     type="button"
                     className="btn btn-emergency w-100"
-                    onClick={() =>
-                      window.dispatchEvent(
-                        new CustomEvent('cmpf-open-book-panel', {
-                          detail: {
-                            title: `Agence CMPF ${selectedCity.name}`,
-                            copy: `Notre equipe locale ${selectedCity.name} est disponible 24/7 pour urgence et transfert medical.`,
-                            phone: selectedCityPhone,
-                            email: selectedCity.email,
-                            address: selectedCity.address,
-                            message: `Bonjour CMPF, besoin d assistance ambulance sur ${selectedCity.name}.`
-                          }
-                        })
+                    onClick={(event) =>
+                      openQuickBookPanel(
+                        {
+                          title: `Agence CMPF ${selectedCity.name}`,
+                          copy: `Notre equipe locale ${selectedCity.name} est disponible 24/7 pour urgence et transfert medical.`,
+                          phone: selectedCityPhone,
+                          email: selectedCity.email,
+                          address: selectedCity.address,
+                          message: `Bonjour CMPF, besoin d assistance ambulance sur ${selectedCity.name}.`
+                        },
+                        event
                       )
                     }
                   >
@@ -502,7 +512,21 @@ function HomePage() {
         <div className="container text-center">
           <h2>Besoin d une assistance immediate ?</h2>
           <p className="mb-4">La CMPF intervient rapidement pour tout besoin medical, transfert ou rapatriement.</p>
-          <Link to="/contact" className="btn btn-emergency" onClick={(event) => { event.preventDefault(); window.dispatchEvent(new Event('cmpf-open-book-panel')); }}>Demander une Ambulance</Link>
+          <Link
+            to="/contact"
+            className="btn btn-emergency"
+            onClick={(event) =>
+              openQuickBookPanel(
+                {
+                  title: 'Cellule de Prise en Charge',
+                  copy: 'Appelez-nous ou ecrivez sur WhatsApp. Notre standard est disponible 24/7 pour une assistance immediate.'
+                },
+                event
+              )
+            }
+          >
+            Demander une Ambulance
+          </Link>
         </div>
       </section>
       </div>
