@@ -14,13 +14,6 @@ import {
   buildWebsiteSchema
 } from '../seo/schemas';
 
-const pillars = [
-  'Transfert vers une structure de soins de proximite',
-  'Rapatriement sanitaire avec equipe medicale',
-  'Assistance psychologique en cas d evenement traumatisant',
-  'Constitution rapide du dossier et demarches administratives'
-];
-
 const homeFaqs = [
   { q: 'La CMPF intervient-elle 24h/24 et 7j/7 ?', a: 'Oui, sur simple appel et a tout moment, nos equipes se mobilisent selon le besoin medical.' },
   { q: 'Quels types de transport medical proposez-vous ?', a: 'Ambulance medicalisee, ambulance avec medecin, transport dialyse, rapatriement sanitaire et solutions specialisees.' },
@@ -284,24 +277,6 @@ function HomePage() {
                 </div>
               </div>
             </motion.div>
-          </div>
-        </div>
-      </section>
-
-      <section className="section about-strip">
-        <div className="container">
-          <div className="row align-items-center g-5">
-            <div className="col-lg-6">
-              <img src={content.story.image} alt="Equipe medicale CMPF" className="img-fluid about-image" />
-            </div>
-            <div className="col-lg-6">
-              <h2 className="section-title text-start">{content.story.heading}</h2>
-              <p className="section-copy">{content.story.content}</p>
-              <p className="section-copy">Chaque ambulance est connectee au dispatch GPS pour ajuster les trajets selon le trafic et la disponibilite des structures de soins.</p>
-              <ul className="pill-list">
-                {pillars.map((pillar) => <li key={pillar}>{pillar}</li>)}
-              </ul>
-            </div>
           </div>
         </div>
       </section>

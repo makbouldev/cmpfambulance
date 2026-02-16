@@ -54,9 +54,8 @@ export const fallbackData = {
     }
   ],
   story: {
-    heading: 'Une Assistance Complete et Rapide',
-    content:
-      'La CMPF assure le transfert vers des structures de soins, le rapatriement sanitaire, la constitution du dossier administratif et l organisation d evacuations locoregionales ou de rapatriements si necessaire.',
+    heading: '',
+    content: '',
     image:
       '/1.jpeg'
   },

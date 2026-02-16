@@ -1,4 +1,4 @@
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, HashRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { SiteDataContext } from './context/SiteDataContext';
 import { useSiteContent } from './hooks/useSiteContent';
 import SiteShell from './components/SiteShell';
@@ -16,10 +16,11 @@ import './App.css';
 
 function App() {
   const siteData = useSiteContent();
+  const Router = window.location.hostname.endsWith('github.io') ? HashRouter : BrowserRouter;
 
   return (
     <SiteDataContext.Provider value={siteData}>
-      <BrowserRouter>
+      <Router>
         <Routes>
           <Route element={<SiteShell />}>
             <Route path="/" element={<HomePage />} />
@@ -36,7 +37,7 @@ function App() {
             <Route path="*" element={<Navigate to="/" replace />} />
           </Route>
         </Routes>
-      </BrowserRouter>
+      </Router>
     </SiteDataContext.Provider>
   );
 }
