@@ -4,6 +4,7 @@ import axios from 'axios';
 import Seo from '../components/Seo';
 import { buildBreadcrumbSchema, buildWebPageSchema } from '../seo/schemas';
 import { useSiteData } from '../context/SiteDataContext';
+import { resolveMediaPath } from '../utils/resolveMediaPath';
 
 function BlogDetailPage() {
   const { apiBaseUrl } = useSiteData();
@@ -12,11 +13,7 @@ function BlogDetailPage() {
   const [relatedPosts, setRelatedPosts] = useState([]);
   const [notFound, setNotFound] = useState(false);
 
-  const resolveImage = (value) => {
-    if (!value) return '';
-    if (value.startsWith('/uploads/')) return `${apiBaseUrl}${value}`;
-    return value;
-  };
+  const resolveImage = (value) => resolveMediaPath(value, apiBaseUrl);
 
   useEffect(() => {
     const load = async () => {

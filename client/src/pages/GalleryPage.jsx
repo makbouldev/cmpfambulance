@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useSiteData } from '../context/SiteDataContext';
 import Seo from '../components/Seo';
 import { buildBreadcrumbSchema, buildWebPageSchema } from '../seo/schemas';
+import { resolveMediaPath } from '../utils/resolveMediaPath';
 
 const missions = [
   { city: 'Casablanca', type: 'Transfert vers structure de soins', time: 'Rapide' },
@@ -13,11 +14,7 @@ const missions = [
 
 function GalleryPage() {
   const { content, apiBaseUrl } = useSiteData();
-  const resolveImage = (value) => {
-    if (!value) return '';
-    if (value.startsWith('/uploads/')) return `${apiBaseUrl}${value}`;
-    return value;
-  };
+  const resolveImage = (value) => resolveMediaPath(value, apiBaseUrl);
 
   return (
     <>

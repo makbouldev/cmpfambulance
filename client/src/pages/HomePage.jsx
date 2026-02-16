@@ -6,6 +6,7 @@ import { useSiteData } from '../context/SiteDataContext';
 import heroImage from '../assets/hero.jpeg';
 import Seo from '../components/Seo';
 import { cityAgencies } from '../data/cityAgencies';
+import { resolveMediaPath } from '../utils/resolveMediaPath';
 import {
   buildBreadcrumbSchema,
   buildFaqSchema,
@@ -110,11 +111,9 @@ function HomePage() {
   const selectedCityPhone = selectedCity.phones?.[0] || selectedCity.mobile || '';
   const phoneDigits = (content.phone || '').replace(/[^\d+]/g, '');
   const whatsappDigits = (content.phone || '').replace(/\D/g, '');
-  const resolvedHeroImage = (() => {
-    const heroSrc = content?.hero?.backgroundImage || heroImage;
-    if (heroSrc.startsWith('/uploads/')) return `${apiBaseUrl}${heroSrc}`;
-    return heroSrc;
-  })();
+  const resolvedHeroImage = content?.hero?.backgroundImage
+    ? resolveMediaPath(content.hero.backgroundImage, apiBaseUrl)
+    : heroImage;
 
   const mapSrc = useMemo(() => {
     const query = encodeURIComponent(selectedCity.address || `${selectedCity.name}, Morocco`);

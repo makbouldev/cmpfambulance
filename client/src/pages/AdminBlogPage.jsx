@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import axios from 'axios';
 import Seo from '../components/Seo';
 import { useSiteData } from '../context/SiteDataContext';
+import { resolveMediaPath } from '../utils/resolveMediaPath';
 
 const emptyForm = {
   title: '',
@@ -55,11 +56,7 @@ function AdminBlogPage() {
     [authToken]
   );
 
-  const resolveImage = (value) => {
-    if (!value) return '';
-    if (value.startsWith('/uploads/')) return `${apiBaseUrl}${value}`;
-    return value;
-  };
+  const resolveImage = (value) => resolveMediaPath(value, apiBaseUrl);
 
   const ensureAuthError = (error) => {
     if (error?.response?.status === 401) {

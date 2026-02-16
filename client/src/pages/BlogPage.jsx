@@ -4,15 +4,12 @@ import axios from 'axios';
 import Seo from '../components/Seo';
 import { buildBreadcrumbSchema, buildWebPageSchema } from '../seo/schemas';
 import { useSiteData } from '../context/SiteDataContext';
+import { resolveMediaPath } from '../utils/resolveMediaPath';
 
 function BlogPage() {
   const { apiBaseUrl } = useSiteData();
   const [blogPosts, setBlogPosts] = useState([]);
-  const resolveImage = (value) => {
-    if (!value) return '';
-    if (value.startsWith('/uploads/')) return `${apiBaseUrl}${value}`;
-    return value;
-  };
+  const resolveImage = (value) => resolveMediaPath(value, apiBaseUrl);
 
   useEffect(() => {
     const load = async () => {
