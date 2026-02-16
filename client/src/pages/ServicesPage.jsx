@@ -9,112 +9,112 @@ const serviceCatalog = [
     title: 'Ambulance Medicalisee',
     icon: 'bi-heart-pulse-fill',
     category: 'Urgence',
-    image: '',
+    image: '1.jpeg',
     description: 'Ambulance equipee pour prise en charge immediate et surveillance medicale continue.'
   },
   {
     title: 'Ambulance avec Medecin',
     icon: 'bi-hospital-fill',
     category: 'Urgence',
-    image: '',
+    image: '2.jpeg',
     description: 'Intervention avec medecin et/ou infirmier selon la gravite et la situation du patient.'
   },
   {
     title: 'Medecin d Urgence',
     icon: 'bi-prescription2',
     category: 'Urgence',
-    image: '',
+    image: '3.jpeg',
     description: 'Mobilisation rapide d un medecin pour evaluation clinique et orientation therapeutique.'
   },
   {
     title: 'Rapatriement Sanitaire',
     icon: 'bi-airplane-fill',
     category: 'Transport Medical',
-    image: '',
+    image: '4.jpeg',
     description: 'Organisation complete du rapatriement avec equipe medicale et logistique administrative.'
   },
   {
     title: 'Transport Ambulance',
     icon: 'bi-truck',
     category: 'Transport Medical',
-    image: '',
+    image: '5.jpeg',
     description: 'Transport securise pour hospitalisation, consultation, retour domicile ou transfert inter-hopital.'
   },
   {
     title: 'Transport pour Dialyse',
     icon: 'bi-arrow-left-right',
     category: 'Transport Medical',
-    image: '',
+    image: '6.jpeg',
     description: 'Trajets programmes et ponctuels vers les centres de dialyse avec confort et ponctualite.'
   },
   {
     title: 'Couveuse',
     icon: 'bi-heart-fill',
     category: 'Transport Medical',
-    image: '',
+    image: '7.jpeg',
     description: 'Transport neonatal en couveuse avec supervision adaptee aux besoins du nouveau-ne.'
   },
   {
     title: 'Medecin a Domicile',
     icon: 'bi-house-heart-fill',
     category: 'Domicile',
-    image: '',
+    image: '8.jpeg',
     description: 'Consultation medicale a domicile pour cas non deplacables ou suivi post-hospitalisation.'
   },
   {
     title: 'Infirmier a Domicile',
     icon: 'bi-bandaid-fill',
     category: 'Domicile',
-    image: '',
+    image: '9.jpeg',
     description: 'Soins infirmiers a domicile: pansements, injections, surveillance et accompagnement quotidien.'
   },
   {
     title: 'Hospitalisation a Domicile',
     icon: 'bi-hospital',
     category: 'Domicile',
-    image: '',
+    image: '10.jpeg',
     description: 'Mise en place d un parcours de soins a domicile encadre par des intervenants qualifies.'
   },
   {
     title: 'Assistance a l Hospitalisation',
     icon: 'bi-clipboard2-check-fill',
     category: 'Domicile',
-    image: '',
+    image: '1.jpeg',
     description: 'Coordination avant, pendant et apres hospitalisation pour fluidifier la prise en charge.'
   },
   {
     title: 'Contre-visite',
     icon: 'bi-search-heart-fill',
     category: 'Domicile',
-    image: '',
+    image: '2.jpeg',
     description: 'Evaluation medicale complementaire selon la demande des familles ou des organismes partenaires.'
   },
   {
     title: 'Intervenants Paramedicaux',
     icon: 'bi-people-fill',
     category: 'Paramedical',
-    image: '',
+    image: '3.jpeg',
     description: 'Mobilisation de profils paramedicaux adaptes au besoin clinique et au plan therapeutique.'
   },
   {
     title: 'Materiel Paramedical',
     icon: 'bi-capsule-pill',
     category: 'Paramedical',
-    image: '',
+    image: '4.jpeg',
     description: 'Mise a disposition de materiel paramedical pour optimiser le suivi et le confort du patient.'
   },
   {
     title: 'Location Materiel Medical',
     icon: 'bi-clipboard2-pulse-fill',
     category: 'Paramedical',
-    image: '',
+    image: '5.jpeg',
     description: 'Location de materiel medical avec accompagnement sur l installation et l utilisation.'
   },
   {
     title: 'Evenements Sportifs ou Culturels',
     icon: 'bi-trophy-fill',
     category: 'Evenementiel',
-    image: '',
+    image: '6.jpeg',
     description: 'Dispositif medical complet sur site: ambulance, infirmerie mobile et equipe encadrante.'
   }
 ];
