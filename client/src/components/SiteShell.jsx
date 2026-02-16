@@ -93,7 +93,11 @@ function SiteShell() {
       setShowQuickBook(true);
     };
     window.addEventListener('cmpf-open-book-panel', openQuickBook);
-    return () => window.removeEventListener('cmpf-open-book-panel', openQuickBook);
+    document.addEventListener('cmpf-open-book-panel', openQuickBook);
+    return () => {
+      window.removeEventListener('cmpf-open-book-panel', openQuickBook);
+      document.removeEventListener('cmpf-open-book-panel', openQuickBook);
+    };
   }, []);
 
   useEffect(() => {

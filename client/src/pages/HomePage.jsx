@@ -125,9 +125,10 @@ function HomePage() {
       event.preventDefault();
       event.stopPropagation();
     }
-    // Delay dispatch one tick to avoid immediate overlay close from the same click event.
+    // Dispatch on both window and document for better compatibility across browsers.
     window.setTimeout(() => {
       window.dispatchEvent(new CustomEvent('cmpf-open-book-panel', { detail }));
+      document.dispatchEvent(new CustomEvent('cmpf-open-book-panel', { detail }));
     }, 0);
   };
 
