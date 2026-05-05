@@ -21,16 +21,16 @@ function CityAgencyPage() {
   return (
     <>
       <Seo
-        title={`Agence CMPF ${city.name}`}
-        description={`Agence CMPF Assistance ${city.name}: assistance medicale 24/7, intervention rapide, transport medical et rapatriement sanitaire.`}
+        title={`Equipe CMPF Nettoyage ${city.name}`}
+        description={`Equipe CMPF Nettoyage ${city.name}: nettoyage domicile, bureaux, chantiers, vitres, tapis, canapes et entretien professionnel.`}
         path={`/agences/${city.slug}`}
         image={city.heroImage}
-        keywords={`ambulance ${city.name.toLowerCase()}, agence cmpf ${city.name.toLowerCase()}, transport medical ${city.name.toLowerCase()}`}
+        keywords={`nettoyage ${city.name.toLowerCase()}, societe nettoyage ${city.name.toLowerCase()}, cmpf nettoyage ${city.name.toLowerCase()}`}
         structuredData={[
           buildWebPageSchema({
-            name: `Agence CMPF ${city.name}`,
+            name: `Equipe CMPF Nettoyage ${city.name}`,
             path: `/agences/${city.slug}`,
-            description: `Informations de l agence CMPF a ${city.name}.`
+            description: `Informations de l equipe CMPF Nettoyage a ${city.name}.`
           }),
           buildBreadcrumbSchema([
             { name: 'Accueil', path: '/' },
@@ -43,8 +43,8 @@ function CityAgencyPage() {
       <section className="inner-hero city-agency-hero" style={{ backgroundImage: `url(${city.heroImage})` }}>
         <div className="city-agency-hero-overlay" />
         <div className="container position-relative">
-          <h1>Agence CMPF {city.name}</h1>
-          <p>Assistance medicale rapide, equipe encadree et intervention 24/7 dans la region {city.region}.</p>
+          <h1>Equipe CMPF Nettoyage {city.name}</h1>
+          <p>Nettoyage domicile, bureaux, commerces et chantiers dans la region {city.region}.</p>
         </div>
       </section>
 
@@ -53,16 +53,16 @@ function CityAgencyPage() {
           <div className="row g-4">
             <div className="col-lg-7">
               <div className="agency-main-card h-100">
-                <h2 className="section-title text-start mb-3">Agence {city.code} - {city.name}</h2>
+                <h2 className="section-title text-start mb-3">Equipe {city.code} - {city.name}</h2>
                 <p className="section-copy mb-3">
-                  Notre agence CMPF a {city.name} coordonne les interventions d urgence et hors urgence avec une cellule
-                  de dispatch active 24/7, des ambulanciers qualifies et des moyens adaptes a chaque situation.
+                  Notre equipe CMPF Nettoyage a {city.name} coordonne les demandes de nettoyage ponctuel et regulier
+                  avec des agents formes, du materiel adapte et un suivi qualite apres intervention.
                 </p>
                 <ul className="check-list mb-3">
                   <li><strong>Region:</strong> {city.region}</li>
                   <li><strong>Adresse:</strong> {city.address}</li>
-                  <li><strong>Temps moyen de reponse:</strong> {city.responseTime}</li>
-                  <li><strong>Services:</strong> ambulance medicalisee, medecin/infirmier, transport dialyse, rapatriement</li>
+                  <li><strong>Delai de reponse:</strong> {city.responseTime}</li>
+                  <li><strong>Services:</strong> domicile, bureaux, chantier, vitres, tapis, canapes, desinfection</li>
                 </ul>
                 <div className="agency-contact-row">
                   <button
@@ -72,8 +72,8 @@ function CityAgencyPage() {
                       window.dispatchEvent(
                         new CustomEvent('cmpf-open-book-panel', {
                           detail: {
-                            title: `Agence CMPF ${city.name}`,
-                            copy: `Contactez immediatement l agence de ${city.name}. Notre equipe locale repond 24/7 pour urgence, transfert et assistance medicale.`,
+                            title: `Equipe CMPF Nettoyage ${city.name}`,
+                            copy: `Contactez l equipe de ${city.name}. Nous repondons rapidement pour devis, planning et intervention de nettoyage.`,
                             phone: telMain,
                             email: city.email
                           }
@@ -81,7 +81,7 @@ function CityAgencyPage() {
                       )
                     }
                   >
-                    <i className="bi bi-telephone-fill me-2" />Appeler l Agence
+                    <i className="bi bi-telephone-fill me-2" />Appeler l Equipe
                   </button>
                   <a href={`https://wa.me/${mobileDigits.replace(/\D/g, '')}`} target="_blank" rel="noreferrer" className="btn btn-success">
                     <i className="bi bi-whatsapp me-2" />WhatsApp Mobile
@@ -107,7 +107,7 @@ function CityAgencyPage() {
                 ))}
                 <p className="mb-2"><i className="bi bi-phone-fill me-2" /><a href={`tel:${mobileDigits}`}>{city.mobile}</a></p>
                 <p className="mb-2"><i className="bi bi-envelope-fill me-2" />{city.email}</p>
-                <p className="mb-0"><i className="bi bi-clock-fill me-2" />Disponibilite 24/7</p>
+                <p className="mb-0"><i className="bi bi-clock-fill me-2" />Disponibilite 7j/7 sur planning</p>
               </div>
             </div>
           </div>
@@ -116,7 +116,7 @@ function CityAgencyPage() {
 
       <section className="section light-area">
         <div className="container">
-          <h2 className="section-title">Carte de Couverture - {city.name}</h2>
+          <h2 className="section-title">Carte de Couverture Nettoyage - {city.name}</h2>
           <div className="map-frame-wrap mt-4">
             <iframe title={`Carte ${city.name}`} src={mapSrc} className="city-map-frame" loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
           </div>
@@ -125,7 +125,7 @@ function CityAgencyPage() {
 
       <section className="section">
         <div className="container">
-          <h2 className="section-title">Autres Agences CMPF</h2>
+          <h2 className="section-title">Autres Equipes CMPF Nettoyage</h2>
           <div className="row g-3 mt-2">
             {cityAgencies.filter((item) => item.slug !== city.slug).map((item) => (
               <div className="col-6 col-md-4 col-lg-3" key={item.slug}>
@@ -143,4 +143,3 @@ function CityAgencyPage() {
 }
 
 export default CityAgencyPage;
-

@@ -16,10 +16,10 @@ import {
 } from '../seo/schemas';
 
 const homeFaqs = [
-  { q: 'La CMPF intervient-elle 24h/24 et 7j/7 ?', a: 'Oui, sur simple appel et a tout moment, nos equipes se mobilisent selon le besoin medical.' },
-  { q: 'Quels types de transport medical proposez-vous ?', a: 'Ambulance medicalisee, ambulance avec medecin, transport dialyse, rapatriement sanitaire et solutions specialisees.' },
-  { q: 'Intervenez-vous pour les evenements ?', a: 'Oui, congres, salons, evenements sportifs, culturels, chantiers, avec ambulance, infirmerie mobile et equipe medicale.' },
-  { q: 'Pouvez-vous organiser une prise en charge hors urgence ?', a: 'Oui, nous mobilisons medecins, infirmiers, paramedicaux, location de materiel et suivi clinique apres hospitalisation.' }
+  { q: 'CMPF Nettoyage intervient-elle 7j/7 ?', a: 'Oui, nos equipes organisent des interventions rapides selon vos horaires, pour domicile, bureaux, commerces et chantiers.' },
+  { q: 'Quels services de nettoyage proposez-vous ?', a: 'Nettoyage a domicile, bureaux, fin de chantier, vitrerie, tapis, canapes, espaces communs et desinfection.' },
+  { q: 'Intervenez-vous pour les evenements ?', a: 'Oui, nous assurons le nettoyage avant, pendant et apres les evenements, salons, receptions, chantiers et sites professionnels.' },
+  { q: 'Pouvez-vous proposer un contrat regulier ?', a: 'Oui, nous preparons un planning d entretien quotidien, hebdomadaire ou mensuel avec controle qualite.' }
 ];
 
 const cities = cityAgencies.map((city) => ({
@@ -97,8 +97,8 @@ function getStatIcon(label, index) {
   if (text.includes('dispatch')) return 'bi bi-activity';
   if (text.includes('response') || text.includes('time')) return 'bi bi-stopwatch-fill';
   if (text.includes('cities') || text.includes('covered')) return 'bi bi-geo-alt-fill';
-  if (text.includes('ambulance')) return 'bi bi-truck';
-  const fallback = ['bi bi-heart-pulse-fill', 'bi bi-shield-check', 'bi bi-graph-up-arrow', 'bi bi-hospital'];
+  if (text.includes('equipe') || text.includes('equipes')) return 'bi bi-people-fill';
+  const fallback = ['bi bi-stars', 'bi bi-shield-check', 'bi bi-graph-up-arrow', 'bi bi-brush-fill'];
   return fallback[index % fallback.length];
 }
 
@@ -155,18 +155,18 @@ function HomePage() {
   return (
     <>
       <Seo
-        title="Ambulance et Assistance Medicale 24/7"
-        description="CMPF Assistance intervient rapidement pour transport medical, rapatriement sanitaire, assistance a domicile et couverture evenementielle au Maroc."
+        title="Nettoyage Professionnel pour Domiciles et Entreprises"
+        description="CMPF Nettoyage intervient pour entretien, grand nettoyage, nettoyage bureaux, fin de chantier, vitres, tapis, canapes et desinfection au Maroc."
         path="/"
         image="hero.jpeg"
-        keywords="ambulance maroc, assistance medicale, rapatriement sanitaire, ambulance casablanca, transport medical urgent"
+        keywords="nettoyage maroc, nettoyage casablanca, nettoyage bureaux, grand nettoyage, nettoyage fin de chantier, societe de nettoyage"
         structuredData={[
           buildOrganizationSchema(content),
           buildWebsiteSchema(),
           buildWebPageSchema({
-            name: 'Accueil CMPF Assistance',
+            name: 'Accueil CMPF Nettoyage',
             path: '/',
-            description: 'Services d ambulance et assistance medicale disponibles 24/7 au Maroc.'
+            description: 'Services de nettoyage professionnel pour particuliers et entreprises au Maroc.'
           }),
           buildBreadcrumbSchema([{ name: 'Accueil', path: '/' }]),
           buildFaqSchema(homeFaqs)
@@ -179,17 +179,17 @@ function HomePage() {
             <h1>{content.hero.title}</h1>
             <p>{content.hero.subtitle}</p>
             <div className="hero-urgency-note">
-              <i className="bi bi-exclamation-triangle-fill" />
-              <span>Urgence Medicale 24/7 - Reponse Immediate</span>
+              <i className="bi bi-stars" />
+              <span>Nettoyage Rapide - Devis et Planning Flexibles</span>
             </div>
             <div className="hero-actions-wrap">
               <a className="hero-action-btn hero-call-btn" href={`tel:${phoneDigits}`}>
                 <i className="bi bi-telephone-fill" />
-                <span>Appel Urgence</span>
+                <span>Appeler pour Devis</span>
               </a>
               <a className="hero-action-btn hero-wa-btn" href={`https://wa.me/${whatsappDigits}`} target="_blank" rel="noreferrer">
                 <i className="bi bi-whatsapp" />
-                <span>WhatsApp Immediate</span>
+                <span>WhatsApp Devis</span>
               </a>
             </div>
             <div className="hero-secondary-action">
@@ -203,7 +203,7 @@ function HomePage() {
       <div className="home-creative">
       <section className="section services-section">
         <div className="container">
-          <h2 className="section-title">Services d Assistance Medicale</h2>
+          <h2 className="section-title">Services de Nettoyage</h2>
           <div className="row g-4 mt-2">
             {content.services.map((service, idx) => (
               <motion.div key={service.title} className="col-12 col-md-6 col-lg-3" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.1 }}>
@@ -218,7 +218,7 @@ function HomePage() {
         </div>
       </section>
 
-      <section className="section cmpf-ops-section">
+      <section id="ops-section" className="section cmpf-ops-section">
         <div className="container">
           <div className="row g-4 align-items-center">
             <motion.div
@@ -228,42 +228,42 @@ function HomePage() {
               viewport={{ once: true, amount: 0.25 }}
               transition={{ duration: 0.65 }}
             >
-              <h2 className="section-title text-start mb-3">Equipe CMPF: Surveillance, Rapidite et Fiabilite</h2>
+              <h2 className="section-title text-start mb-3">Equipe CMPF Nettoyage: Organisation, Qualite et Fiabilite</h2>
               <p className="section-copy mb-3">
-                Chez CMPF, une equipe de coordination reste active 24/7 pour suivre les ambulances en temps reel, orienter
-                les trajets vers la structure de soins adaptee et reduire le temps de reponse au maximum.
+                Chez CMPF Nettoyage, une equipe de coordination prepare les plannings, affecte les agents,
+                choisit les produits adaptes et suit chaque intervention jusqu a la validation du resultat.
               </p>
               <p className="section-copy mb-4">
-                Nos ambulanciers qualifies, superviseurs terrain et cellule de dispatch travaillent ensemble avec discipline,
-                serenite et sens des responsabilites pour garantir la securite du patient et la credibilite du service.
+                Nos agents, superviseurs terrain et responsables qualite travaillent avec methode, discretion
+                et sens du detail pour livrer des espaces propres, sains et agreables.
               </p>
               <div className="row g-3">
                 <div className="col-sm-6">
                   <div className="ops-mini-card h-100">
                     <i className="bi bi-activity" />
-                    <h6>Suivi en Temps Reel</h6>
-                    <p>Controle continu des equipes et des vehicules d urgence.</p>
+                    <h6>Planning Clair</h6>
+                    <p>Organisation des passages selon vos contraintes et priorites.</p>
                   </div>
                 </div>
                 <div className="col-sm-6">
                   <div className="ops-mini-card h-100">
                     <i className="bi bi-stopwatch-fill" />
                     <h6>Intervention Rapide</h6>
-                    <p>Activation immediate des ambulances selon le niveau d urgence.</p>
+                    <p>Equipe disponible pour nettoyage ponctuel ou contrat regulier.</p>
                   </div>
                 </div>
                 <div className="col-sm-6">
                   <div className="ops-mini-card h-100">
                     <i className="bi bi-shield-check" />
                     <h6>Service Fiable</h6>
-                    <p>Protocoles clairs, qualite de prise en charge et securite.</p>
+                    <p>Methodes de nettoyage claires, controle final et respect des lieux.</p>
                   </div>
                 </div>
                 <div className="col-sm-6">
                   <div className="ops-mini-card h-100">
                     <i className="bi bi-people-fill" />
                     <h6>Equipe Encadree</h6>
-                    <p>Drari khedamin mra9bin mzyan b coordination permanente.</p>
+                    <p>Agents formes, supervises et informes des attentes de chaque client.</p>
                   </div>
                 </div>
               </div>
@@ -276,15 +276,28 @@ function HomePage() {
               viewport={{ once: true, amount: 0.25 }}
               transition={{ duration: 0.7, delay: 0.08 }}
             >
-              <div className="ops-photo-wrap">
-                <img
-                  src="7.jpeg"
-                  alt="Supervision equipe CMPF"
-                  className="ops-photo"
-                />
+              <div className="ops-photo-grid">
+                <div className="ops-photo-main">
+                  <img
+                    src="7.jpeg"
+                    alt="Equipe CMPF Nettoyage avec aspirateur professionnel"
+                  />
+                </div>
+                <div className="ops-photo-small ops-photo-small-top">
+                  <img
+                    src="1.jpeg"
+                    alt="Nettoyage soigne d une cuisine"
+                  />
+                </div>
+                <div className="ops-photo-small ops-photo-small-bottom">
+                  <img
+                    src="6.jpeg"
+                    alt="Desinfection professionnelle des surfaces"
+                  />
+                </div>
                 <div className="ops-photo-badge">
-                  <span className="d-block">Coordination Active</span>
-                  <strong>24/7</strong>
+                  <span className="d-block">Controle Qualite</span>
+                  <strong>7j/7</strong>
                 </div>
               </div>
             </motion.div>
@@ -295,14 +308,14 @@ function HomePage() {
       <section className="section stats-band">
         <div className="container">
           <div className="stats-header text-center mb-4">
-            <h2 className="section-title text-white mb-2">CMPF en Chiffres</h2>
-            <p className="stats-subtitle mb-0">Des indicateurs reels qui montrent la rapidite, la couverture et la fiabilite de notre service ambulance.</p>
+            <h2 className="section-title text-white mb-2">CMPF Nettoyage en Chiffres</h2>
+            <p className="stats-subtitle mb-0">Des indicateurs qui montrent notre couverture, la regularite des equipes et la satisfaction client.</p>
           </div>
           <div className="row g-4">
             {content.stats.map((item, index) => (
               (() => {
                 const normalizedLabel = String(item.label || '').toLowerCase();
-                const safeValue = normalizedLabel.includes('assistance disponible') ? '24/7' : item.value;
+                const safeValue = normalizedLabel.includes('service disponible') ? '7j/7' : item.value;
                 return (
               <motion.div
                 className="col-6 col-lg-3"
@@ -328,23 +341,23 @@ function HomePage() {
       <section className="section home-about-premium">
         <div className="container">
           <h2 className="section-title">Qui Sommes-Nous ?</h2>
-          <p className="home-about-lead text-center">L assistance medicale CMPF englobe ambulance, avion sanitaire, taxi, rapatriement et accompagnement medical selon la gravite de la situation.</p>
+          <p className="home-about-lead text-center">CMPF Nettoyage accompagne les particuliers, entreprises, syndics et commerces avec des prestations propres, flexibles et controlees.</p>
           <div className="row g-4 mt-2 align-items-stretch">
             <div className="col-lg-5">
               <div className="about-photo-wrap h-100">
                 <img
                   src={resolvedHeroImage}
-                  alt="CMPF Assistance service"
+                  alt="CMPF Nettoyage service"
                   className="about-photo"
                 />
               </div>
             </div>
             <div className="col-lg-7">
               <div className="row g-3">
-                <div className="col-md-6"><div className="about-premium-card h-100"><span className="about-badge">Intervention</span><span className="about-card-icon"><i className="bi bi-shield-check" /></span><h5>Rapide et Structuree</h5><p>Intervention immediate vers structure de soins, avec coordination medicale et administrative.</p></div></div>
-                <div className="col-md-6"><div className="about-premium-card h-100"><span className="about-badge">Equipe</span><span className="about-card-icon"><i className="bi bi-people-fill" /></span><h5>Medecin et Infirmier</h5><p>Mobilisation de medecin et/ou infirmier(e) pour les cas exigeant un encadrement medical avance.</p></div></div>
-                <div className="col-md-6"><div className="about-premium-card h-100"><span className="about-badge">Hors Urgence</span><span className="about-card-icon"><i className="bi bi-globe2" /></span><h5>Suivi et Domicile</h5><p>Medecin a domicile, infirmier a domicile, hospitalisation a domicile et suivi clinique post-hospitalisation.</p></div></div>
-                <div className="col-md-6"><div className="about-premium-card h-100"><span className="about-badge">Evenements</span><span className="about-card-icon"><i className="bi bi-cpu-fill" /></span><h5>Couverture Complete</h5><p>Congres, salons, sport, culture, chantiers: ambulances, infirmerie mobile et equipe medicale.</p></div></div>
+                <div className="col-md-6"><div className="about-premium-card h-100"><span className="about-badge">Intervention</span><span className="about-card-icon"><i className="bi bi-shield-check" /></span><h5>Rapide et Structuree</h5><p>Visite, devis, planning et intervention selon la taille du lieu et le niveau de nettoyage demande.</p></div></div>
+                <div className="col-md-6"><div className="about-premium-card h-100"><span className="about-badge">Equipe</span><span className="about-card-icon"><i className="bi bi-people-fill" /></span><h5>Agents Qualifies</h5><p>Mobilisation d agents formes avec superviseur pour les interventions sensibles ou volumineuses.</p></div></div>
+                <div className="col-md-6"><div className="about-premium-card h-100"><span className="about-badge">Domicile</span><span className="about-card-icon"><i className="bi bi-globe2" /></span><h5>Maisons et Appartements</h5><p>Nettoyage regulier, grand menage, cuisine, sanitaires, vitres, tapis et canapes.</p></div></div>
+                <div className="col-md-6"><div className="about-premium-card h-100"><span className="about-badge">Professionnel</span><span className="about-card-icon"><i className="bi bi-cpu-fill" /></span><h5>Couverture Complete</h5><p>Bureaux, commerces, chantiers, syndics et evenements avec controle qualite.</p></div></div>
               </div>
             </div>
           </div>
@@ -354,7 +367,7 @@ function HomePage() {
       <section className="section reviews-creative-section">
         <div className="container">
           <h2 className="section-title">Avis Clients</h2>
-          <p className="reviews-subtitle">Avec CMPF Assistance, chaque deplacement devient une experience unique, fiable et sereine.</p>
+          <p className="reviews-subtitle">Avec CMPF Nettoyage, chaque espace retrouve une sensation propre, saine et accueillante.</p>
           <div className="reviews-slider-wrap mt-4">
             <Carousel indicators controls fade interval={4200} pause="hover">
               {googleStyleReviews.map((person) => (
@@ -378,7 +391,7 @@ function HomePage() {
                     <p className="review-text">"{person.text}"</p>
                     <div className="review-source">
                       <i className="bi bi-geo-alt-fill me-1" />
-                      Avis verifie de nos beneficiaires
+                      Avis verifie de nos clients
                     </div>
                   </div>
                 </Carousel.Item>
@@ -478,12 +491,12 @@ function HomePage() {
                     onClick={(event) =>
                       openQuickBookPanel(
                         {
-                          title: `Agence CMPF ${selectedCity.name}`,
-                          copy: `Notre equipe locale ${selectedCity.name} est disponible 24/7 pour urgence et transfert medical.`,
+                          title: `Equipe CMPF Nettoyage ${selectedCity.name}`,
+                          copy: `Notre equipe locale ${selectedCity.name} organise vos demandes de nettoyage, entretien et desinfection.`,
                           phone: selectedCityPhone,
                           email: selectedCity.email,
                           address: selectedCity.address,
-                          message: `Bonjour CMPF, besoin d assistance ambulance sur ${selectedCity.name}.`
+                          message: `Bonjour CMPF Nettoyage, besoin d un devis nettoyage sur ${selectedCity.name}.`
                         },
                         event
                       )
@@ -500,33 +513,33 @@ function HomePage() {
 
       <section className="section">
         <div className="container">
-          <h2 className="section-title">Assistance Medicale Evenementielle</h2>
+          <h2 className="section-title">Nettoyage Evenementiel et Professionnel</h2>
           <div className="row g-4 mt-2">
-            <div className="col-md-4"><div className="partner-card h-100"><h5>Congres et Salons</h5><p>Presence d une ou plusieurs ambulances avec equipe medicale dediee.</p></div></div>
-            <div className="col-md-4"><div className="partner-card h-100"><h5>Evenements Sportifs et Culturels</h5><p>Infirmerie mobile et dispositif medical pendant toute la duree de l evenement.</p></div></div>
-            <div className="col-md-4"><div className="partner-card h-100"><h5>Chantiers et Sites Professionnels</h5><p>Conventionnement pour prise en charge immediate des malades ou accidentes sur site.</p></div></div>
+            <div className="col-md-4"><div className="partner-card h-100"><h5>Congres et Salons</h5><p>Equipe de nettoyage avant ouverture, pendant l evenement et apres fermeture.</p></div></div>
+            <div className="col-md-4"><div className="partner-card h-100"><h5>Evenements Sportifs et Culturels</h5><p>Gestion des dechets, sanitaires, zones publiques et remise en etat rapide.</p></div></div>
+            <div className="col-md-4"><div className="partner-card h-100"><h5>Chantiers et Sites Professionnels</h5><p>Nettoyage technique, poussiere fine, vitres, sols et preparation avant livraison.</p></div></div>
           </div>
         </div>
       </section>
 
       <section className="section cta-band">
         <div className="container text-center">
-          <h2>Besoin d une assistance immediate ?</h2>
-          <p className="mb-4">La CMPF intervient rapidement pour tout besoin medical, transfert ou rapatriement.</p>
+          <h2>Besoin d un nettoyage rapide ?</h2>
+          <p className="mb-4">CMPF Nettoyage intervient pour domicile, bureaux, chantiers, vitres et desinfection.</p>
           <Link
             to="/contact"
             className="btn btn-emergency"
             onClick={(event) =>
               openQuickBookPanel(
                 {
-                  title: 'Cellule de Prise en Charge',
-                  copy: 'Appelez-nous ou ecrivez sur WhatsApp. Notre standard est disponible 24/7 pour une assistance immediate.'
+                  title: 'Cellule Devis Nettoyage',
+                  copy: 'Appelez-nous ou ecrivez sur WhatsApp. Nous vous aidons a choisir le service et le planning adaptes.'
                 },
                 event
               )
             }
           >
-            Demander une Ambulance
+            Demander un Devis
           </Link>
         </div>
       </section>
@@ -536,6 +549,3 @@ function HomePage() {
 }
 
 export default HomePage;
-
-
-

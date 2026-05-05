@@ -6,10 +6,10 @@ import { buildBreadcrumbSchema, buildWebPageSchema } from '../seo/schemas';
 import { resolveMediaPath } from '../utils/resolveMediaPath';
 
 const missions = [
-  { city: 'Casablanca', type: 'Transfert vers structure de soins', time: 'Rapide' },
-  { city: 'Rabat', type: 'Rapatriement sanitaire avec equipe medicale', time: 'Coordonne' },
-  { city: 'Marrakech', type: 'Transport dialyse programme', time: 'Ponctuel' },
-  { city: 'Tanger', type: 'Couverture evenementielle medicale', time: 'Continu' }
+  { city: 'Casablanca', type: 'Grand nettoyage appartement apres demenagement', time: 'Livre' },
+  { city: 'Rabat', type: 'Entretien regulier de bureaux et sanitaires', time: 'Planifie' },
+  { city: 'Marrakech', type: 'Nettoyage fin de chantier et vitrerie', time: 'Controle' },
+  { city: 'Tanger', type: 'Nettoyage evenementiel avant et apres reception', time: 'Continu' }
 ];
 
 function GalleryPage() {
@@ -19,16 +19,16 @@ function GalleryPage() {
   return (
     <>
       <Seo
-        title="Galerie Interventions Ambulance"
-        description="Galerie des interventions CMPF Assistance: transport medical, assistance sur site, rapatriement et missions medicales au Maroc."
+        title="Galerie Nettoyage et Interventions"
+        description="Galerie des interventions CMPF Nettoyage: domicile, bureaux, chantiers, vitres, textiles, espaces communs et evenements au Maroc."
         path="/gallery"
         image={content.gallery[0]}
-        keywords="galerie ambulance, interventions medicales, cmpf photos, ambulance maroc"
+        keywords="galerie nettoyage, photos nettoyage, nettoyage bureaux, nettoyage chantier, cmpf nettoyage"
         structuredData={[
           buildWebPageSchema({
-            name: 'Galerie CMPF Assistance',
+            name: 'Galerie CMPF Nettoyage',
             path: '/gallery',
-            description: 'Photos et missions realisees par CMPF Assistance.'
+            description: 'Photos et missions realisees par CMPF Nettoyage.'
           }),
           buildBreadcrumbSchema([
             { name: 'Accueil', path: '/' },
@@ -39,17 +39,17 @@ function GalleryPage() {
       <section className="inner-hero inner-hero-gallery">
         <div className="container">
           <h1>Galerie et Interventions</h1>
-          <p>Exemples d interventions medicales, transport et assistance assures par la CMPF.</p>
+          <p>Exemples de prestations de nettoyage, entretien, remise en etat et desinfection assurees par CMPF.</p>
         </div>
       </section>
 
       <section className="section gallery-section">
         <div className="container">
-          <h2 className="section-title">Scenes d Intervention</h2>
+          <h2 className="section-title">Scenes de Nettoyage</h2>
           <div className="gallery-grid mt-4">
             {content.gallery.concat(content.gallery).map((image, idx) => (
               <motion.div className="gallery-item" key={`${image}-${idx}`} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: (idx % 6) * 0.05 }}>
-                <img src={resolveImage(image)} alt={`Intervention CMPF ${idx + 1}`} />
+                <img src={resolveImage(image)} alt={`Intervention CMPF Nettoyage ${idx + 1}`} />
               </motion.div>
             ))}
           </div>
@@ -92,9 +92,9 @@ function GalleryPage() {
 
       <section className="section cta-band">
         <div className="container text-center">
-          <h2>Besoin d une intervention CMPF ?</h2>
-          <p className="mb-4">La CMPF assure une prise en charge medicale immediate sur simple appel.</p>
-          <Link to="/contact" className="btn btn-emergency" onClick={(event) => { event.preventDefault(); window.dispatchEvent(new Event('cmpf-open-book-panel')); }}>Contacter le Standard</Link>
+          <h2>Besoin d une intervention CMPF Nettoyage ?</h2>
+          <p className="mb-4">CMPF assure une prestation propre et organisee sur simple demande.</p>
+          <Link to="/contact" className="btn btn-emergency" onClick={(event) => { event.preventDefault(); window.dispatchEvent(new Event('cmpf-open-book-panel')); }}>Contacter l Equipe</Link>
         </div>
       </section>
     </>
@@ -102,5 +102,3 @@ function GalleryPage() {
 }
 
 export default GalleryPage;
-
-

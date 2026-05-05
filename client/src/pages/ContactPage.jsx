@@ -6,10 +6,10 @@ import Seo from '../components/Seo';
 import { buildBreadcrumbSchema, buildFaqSchema, buildWebPageSchema } from '../seo/schemas';
 
 const faqs = [
-  { q: 'Intervenez-vous uniquement en urgence ?', a: 'Non, la CMPF intervient aussi pour les cas hors urgence et les besoins programmes.' },
-  { q: 'Proposez-vous medecin/infirmier a domicile ?', a: 'Oui, selon besoin nous mobilisons medecin, infirmier(e) et intervenants paramedicaux.' },
-  { q: 'Assurez-vous la couverture des evenements ?', a: 'Oui, avec ambulance(s), infirmerie mobile et equipe medicale sur toute la duree.' },
-  { q: 'Pouvez-vous traiter un dossier administratif rapidement ?', a: 'Oui, nous procedons avec rapidite pour reunir les pieces et finaliser les demarches.' }
+  { q: 'Intervenez-vous uniquement pour les grands nettoyages ?', a: 'Non, CMPF Nettoyage intervient aussi pour l entretien regulier, les petites remises en propre et les contrats professionnels.' },
+  { q: 'Proposez-vous nettoyage maison et bureaux ?', a: 'Oui, nous couvrons domiciles, bureaux, commerces, syndics, chantiers, vitres, tapis et canapes.' },
+  { q: 'Assurez-vous la couverture des evenements ?', a: 'Oui, avec une equipe avant, pendant et apres l evenement selon la taille du lieu.' },
+  { q: 'Pouvez-vous envoyer un devis rapidement ?', a: 'Oui, envoyez les informations utiles et notre equipe prepare une estimation claire.' }
 ];
 
 function ContactPage() {
@@ -43,15 +43,15 @@ function ContactPage() {
   return (
     <>
       <Seo
-        title="Contact Ambulance 24/7"
-        description="Contactez CMPF Assistance pour une prise en charge medicale urgente ou programmee. Appel et WhatsApp disponibles 24/7."
+        title="Contact Nettoyage et Devis"
+        description="Contactez CMPF Nettoyage pour un devis nettoyage domicile, bureaux, chantier, vitres, tapis, canapes, espaces communs ou evenement."
         path="/contact"
-        keywords="contact ambulance, numero ambulance cmpf, urgence medicale maroc, assistance 24 7"
+        keywords="contact nettoyage, devis nettoyage, nettoyage casablanca, societe nettoyage maroc, cmpf nettoyage"
         structuredData={[
           buildWebPageSchema({
-            name: 'Contact CMPF Assistance',
+            name: 'Contact CMPF Nettoyage',
             path: '/contact',
-            description: 'Formulaire et coordonnees pour demander une assistance medicale immediate.'
+            description: 'Formulaire et coordonnees pour demander un devis ou une intervention de nettoyage.'
           }),
           buildBreadcrumbSchema([
             { name: 'Accueil', path: '/' },
@@ -62,8 +62,8 @@ function ContactPage() {
       />
       <section className="inner-hero inner-hero-contact">
         <div className="container">
-          <h1>Contact et Demande de Prise en Charge</h1>
-          <p>Sur simple appel, la CMPF active l assistance medicale adaptee a votre situation.</p>
+          <h1>Contact et Demande de Devis</h1>
+          <p>Sur simple appel, CMPF Nettoyage organise la prestation adaptee a votre espace.</p>
         </div>
       </section>
 
@@ -71,21 +71,21 @@ function ContactPage() {
         <div className="container">
           <div className="row g-5 align-items-center">
             <div className="col-lg-6">
-              <h2 className="section-title text-start">Formulaire d Assistance</h2>
-              <p className="section-copy">Decrivez le besoin (urgence, transfert, domicile, evenement). Notre equipe vous contacte rapidement.</p>
+              <h2 className="section-title text-start">Formulaire de Nettoyage</h2>
+              <p className="section-copy">Decrivez le besoin: domicile, bureau, chantier, vitres, tapis, canapes, surface, adresse et horaire souhaite.</p>
               <div className="contact-info">
                 {phones.map((phone) => (
                   <div key={phone}><i className="bi bi-telephone-fill me-2" />{phone}</div>
                 ))}
                 <div><i className="bi bi-envelope-fill me-2" />{content.email}</div>
-                <div><i className="bi bi-clock-fill me-2" />Disponibilite continue 24/7</div>
+                <div><i className="bi bi-clock-fill me-2" />Disponibilite 7j/7 sur planning</div>
               </div>
             </div>
             <div className="col-lg-6">
               <form className="contact-form" onSubmit={onSubmit}>
                 <input name="name" value={formState.name} onChange={onInput} placeholder="Nom Complet" required />
                 <input name="phone" value={formState.phone} onChange={onInput} placeholder="Telephone" required />
-                <textarea name="message" value={formState.message} onChange={onInput} placeholder="Type de besoin / adresse / informations medicales utiles" rows="5" />
+                <textarea name="message" value={formState.message} onChange={onInput} placeholder="Type de nettoyage / adresse / surface / date souhaitee" rows="5" />
                 <button type="submit" className="btn btn-emergency w-100" disabled={loading}>{loading ? 'Envoi en cours...' : 'Envoyer la Demande'}</button>
                 {statusMessage && <div className="status-message mt-3">{statusMessage}</div>}
               </form>
@@ -98,9 +98,9 @@ function ContactPage() {
         <div className="container">
           <h2 className="section-title">Apres Votre Demande</h2>
           <div className="row g-4 mt-2">
-            <div className="col-md-4"><div className="long-card h-100"><h5>1. Evaluation</h5><p>Notre equipe evalue l urgence et prepare le type d intervention approprie.</p></div></div>
-            <div className="col-md-4"><div className="long-card h-100"><h5>2. Mobilisation</h5><p>Ambulance, medecin, infirmier, transport special ou dispositif evenementiel.</p></div></div>
-            <div className="col-md-4"><div className="long-card h-100"><h5>3. Suivi</h5><p>Accompagnement du patient, demarches administratives et coordination medicale.</p></div></div>
+            <div className="col-md-4"><div className="long-card h-100"><h5>1. Evaluation</h5><p>Notre equipe analyse le type de lieu, la surface, les priorites et le delai souhaite.</p></div></div>
+            <div className="col-md-4"><div className="long-card h-100"><h5>2. Planning</h5><p>Nous proposons l equipe, les produits, le materiel et le creneau le plus pratique.</p></div></div>
+            <div className="col-md-4"><div className="long-card h-100"><h5>3. Controle</h5><p>Apres l intervention, un controle final valide la proprete et les points sensibles.</p></div></div>
           </div>
         </div>
       </section>
@@ -123,9 +123,9 @@ function ContactPage() {
 
       <section className="section cta-band">
         <div className="container text-center">
-          <h2>Besoin d informations sur nos moyens ?</h2>
-          <p className="mb-4">Consultez la page flotte pour voir les categories de prise en charge et la couverture.</p>
-          <Link to="/fleet" className="btn btn-emergency">Voir la Flotte</Link>
+          <h2>Besoin d informations sur nos equipes ?</h2>
+          <p className="mb-4">Consultez la page equipes pour voir nos categories d intervention et la couverture.</p>
+          <Link to="/fleet" className="btn btn-emergency">Voir les Equipes</Link>
         </div>
       </section>
     </>
@@ -133,4 +133,3 @@ function ContactPage() {
 }
 
 export default ContactPage;
-

@@ -23,15 +23,15 @@ function CitiesMapPage() {
   return (
     <>
       <Seo
-        title="Villes Couverte et Carte"
-        description="Consultez les villes couvertes par CMPF Assistance et la carte de couverture medicale pour chaque ville au Maroc."
+        title="Villes Couvertes et Carte"
+        description="Consultez les villes couvertes par CMPF Nettoyage et la carte de couverture pour chaque ville au Maroc."
         path="/cities-map"
-        keywords="villes ambulance maroc, carte couverture ambulance, cmpf agadir casablanca rabat"
+        keywords="villes nettoyage maroc, carte couverture nettoyage, cmpf nettoyage agadir casablanca rabat"
         structuredData={[
           buildWebPageSchema({
-            name: 'Carte de Couverture CMPF',
+            name: 'Carte de Couverture CMPF Nettoyage',
             path: '/cities-map',
-            description: 'Carte de couverture medicale par ville pour les interventions CMPF.'
+            description: 'Carte de couverture par ville pour les interventions CMPF Nettoyage.'
           }),
           buildBreadcrumbSchema([
             { name: 'Accueil', path: '/' },
@@ -41,8 +41,8 @@ function CitiesMapPage() {
       />
       <section className="inner-hero inner-hero-map">
         <div className="container">
-          <h1>Carte de Couverture Medicale</h1>
-          <p>Selectionnez une ville et visualisez la zone de prise en charge de la CMPF.</p>
+          <h1>Carte de Couverture Nettoyage</h1>
+          <p>Selectionnez une ville et visualisez la zone de service de CMPF Nettoyage.</p>
         </div>
       </section>
 
@@ -90,7 +90,7 @@ function CitiesMapPage() {
                 <p className="mb-2"><strong>Region:</strong> {selectedCity.region}</p>
                 <p className="mb-2"><strong>Adresse:</strong> {selectedCity.address}</p>
                 <p className="section-copy mb-3">
-                  Contacts directs de l agence CMPF pour la prise en charge immediate.
+                  Contacts directs de l equipe CMPF Nettoyage pour devis et intervention.
                 </p>
                 <ul className="check-list">
                   {(selectedCity.phones || []).map((phone) => <li key={phone}><strong>Tel:</strong> {phone}</li>)}
@@ -105,18 +105,18 @@ function CitiesMapPage() {
                       window.dispatchEvent(
                         new CustomEvent('cmpf-open-book-panel', {
                           detail: {
-                            title: `Agence CMPF ${selectedCity.name}`,
-                            copy: `Contact immediate avec l agence de ${selectedCity.name}.`,
+                            title: `Equipe CMPF Nettoyage ${selectedCity.name}`,
+                            copy: `Contact rapide avec l equipe de ${selectedCity.name}.`,
                             phone: selectedPhone,
                             email: selectedCity.email,
                             address: selectedCity.address,
-                            message: `Bonjour CMPF, j ai besoin d une ambulance a ${selectedCity.name}.`
+                            message: `Bonjour CMPF Nettoyage, j ai besoin d un devis nettoyage a ${selectedCity.name}.`
                           }
                         })
                       )
                     }
                   >
-                    Appeler l Agence
+                    Appeler l Equipe
                   </button>
                 </div>
               </div>
@@ -129,9 +129,9 @@ function CitiesMapPage() {
         <div className="container">
           <h2 className="section-title">Notes de Couverture</h2>
           <div className="row g-4 mt-2">
-            <div className="col-md-4"><div className="partner-card h-100"><h5>Prise en Charge Locale</h5><p>Intervention rapide vers les structures de soins de proximite.</p></div></div>
-            <div className="col-md-4"><div className="partner-card h-100"><h5>Rapatriement Sanitaire</h5><p>Organisation d evacuations locoregionales ou rapatriements si la situation l exige.</p></div></div>
-            <div className="col-md-4"><div className="partner-card h-100"><h5>Assistance Evenementielle</h5><p>Dispositif medical pour congres, salons, evenements sportifs, culturels et chantiers.</p></div></div>
+            <div className="col-md-4"><div className="partner-card h-100"><h5>Equipe Locale</h5><p>Intervention organisee selon la ville, la surface et le type de nettoyage.</p></div></div>
+            <div className="col-md-4"><div className="partner-card h-100"><h5>Planning Flexible</h5><p>Passage ponctuel, contrat regulier ou remise en etat urgente selon disponibilite.</p></div></div>
+            <div className="col-md-4"><div className="partner-card h-100"><h5>Nettoyage Evenementiel</h5><p>Equipe pour salons, receptions, commerces, chantiers et sites professionnels.</p></div></div>
           </div>
         </div>
       </section>
@@ -140,4 +140,3 @@ function CitiesMapPage() {
 }
 
 export default CitiesMapPage;
-

@@ -6,126 +6,98 @@ import { buildBreadcrumbSchema, buildFaqSchema, buildWebPageSchema } from '../se
 
 const serviceCatalog = [
   {
-    title: 'Ambulance Medicalisee',
-    icon: 'bi-heart-pulse-fill',
-    category: 'Urgence',
+    title: 'Nettoyage a Domicile',
+    icon: 'bi-house-check-fill',
+    category: 'Domicile',
     image: '1.jpeg',
-    description: 'Ambulance equipee pour prise en charge immediate et surveillance medicale continue.'
+    description: 'Entretien des appartements, villas, cuisines, sanitaires, chambres et espaces de vie.'
   },
   {
-    title: 'Ambulance avec Medecin',
-    icon: 'bi-hospital-fill',
-    category: 'Urgence',
+    title: 'Grand Nettoyage',
+    icon: 'bi-stars',
+    category: 'Domicile',
     image: '2.jpeg',
-    description: 'Intervention avec medecin et/ou infirmier selon la gravite et la situation du patient.'
+    description: 'Nettoyage approfondi apres demenagement, reception, travaux legers ou longue absence.'
   },
   {
-    title: 'Medecin d Urgence',
-    icon: 'bi-prescription2',
-    category: 'Urgence',
+    title: 'Canapes et Tapis',
+    icon: 'bi-brush-fill',
+    category: 'Domicile',
     image: '3.jpeg',
-    description: 'Mobilisation rapide d un medecin pour evaluation clinique et orientation therapeutique.'
+    description: 'Shampooing, aspiration, traitement des taches et rafraichissement des textiles.'
   },
   {
-    title: 'Rapatriement Sanitaire',
-    icon: 'bi-airplane-fill',
-    category: 'Transport Medical',
+    title: 'Nettoyage Bureaux',
+    icon: 'bi-building-check',
+    category: 'Professionnel',
     image: '4.jpeg',
-    description: 'Organisation complete du rapatriement avec equipe medicale et logistique administrative.'
+    description: 'Entretien regulier des bureaux, open spaces, salles de reunion et sanitaires.'
   },
   {
-    title: 'Transport Ambulance',
-    icon: 'bi-truck',
-    category: 'Transport Medical',
+    title: 'Commerces et Showrooms',
+    icon: 'bi-shop',
+    category: 'Professionnel',
     image: '5.jpeg',
-    description: 'Transport securise pour hospitalisation, consultation, retour domicile ou transfert inter-hopital.'
+    description: 'Nettoyage de vitrines, sols, rayons, comptoirs et zones clients avant ouverture.'
   },
   {
-    title: 'Transport pour Dialyse',
-    icon: 'bi-arrow-left-right',
-    category: 'Transport Medical',
+    title: 'Syndics et Espaces Communs',
+    icon: 'bi-door-open-fill',
+    category: 'Professionnel',
     image: '6.jpeg',
-    description: 'Trajets programmes et ponctuels vers les centres de dialyse avec confort et ponctualite.'
+    description: 'Halls, escaliers, ascenseurs, parkings, locaux techniques et sorties des poubelles.'
   },
   {
-    title: 'Couveuse',
-    icon: 'bi-heart-fill',
-    category: 'Transport Medical',
+    title: 'Nettoyage Fin de Chantier',
+    icon: 'bi-cone-striped',
+    category: 'Technique',
     image: '7.jpeg',
-    description: 'Transport neonatal en couveuse avec supervision adaptee aux besoins du nouveau-ne.'
+    description: 'Poussiere fine, traces de peinture, vitres, sols et remise en propre avant livraison.'
   },
   {
-    title: 'Medecin a Domicile',
-    icon: 'bi-house-heart-fill',
-    category: 'Domicile',
+    title: 'Vitrerie et Facades',
+    icon: 'bi-window',
+    category: 'Technique',
     image: '8.jpeg',
-    description: 'Consultation medicale a domicile pour cas non deplacables ou suivi post-hospitalisation.'
+    description: 'Vitres, baies, vitrines et facades avec materiel adapte et finition sans traces.'
   },
   {
-    title: 'Infirmier a Domicile',
-    icon: 'bi-bandaid-fill',
-    category: 'Domicile',
+    title: 'Desinfection',
+    icon: 'bi-shield-check',
+    category: 'Technique',
     image: '9.jpeg',
-    description: 'Soins infirmiers a domicile: pansements, injections, surveillance et accompagnement quotidien.'
+    description: 'Desinfection ciblee des surfaces, sanitaires, cuisines et zones sensibles.'
   },
   {
-    title: 'Hospitalisation a Domicile',
-    icon: 'bi-hospital',
-    category: 'Domicile',
-    image: '10.jpeg',
-    description: 'Mise en place d un parcours de soins a domicile encadre par des intervenants qualifies.'
-  },
-  {
-    title: 'Assistance a l Hospitalisation',
-    icon: 'bi-clipboard2-check-fill',
-    category: 'Domicile',
-    image: '1.jpeg',
-    description: 'Coordination avant, pendant et apres hospitalisation pour fluidifier la prise en charge.'
-  },
-  {
-    title: 'Contre-visite',
-    icon: 'bi-search-heart-fill',
-    category: 'Domicile',
-    image: '2.jpeg',
-    description: 'Evaluation medicale complementaire selon la demande des familles ou des organismes partenaires.'
-  },
-  {
-    title: 'Intervenants Paramedicaux',
-    icon: 'bi-people-fill',
-    category: 'Paramedical',
-    image: '3.jpeg',
-    description: 'Mobilisation de profils paramedicaux adaptes au besoin clinique et au plan therapeutique.'
-  },
-  {
-    title: 'Materiel Paramedical',
-    icon: 'bi-capsule-pill',
-    category: 'Paramedical',
-    image: '4.jpeg',
-    description: 'Mise a disposition de materiel paramedical pour optimiser le suivi et le confort du patient.'
-  },
-  {
-    title: 'Location Materiel Medical',
-    icon: 'bi-clipboard2-pulse-fill',
-    category: 'Paramedical',
-    image: '5.jpeg',
-    description: 'Location de materiel medical avec accompagnement sur l installation et l utilisation.'
-  },
-  {
-    title: 'Evenements Sportifs ou Culturels',
-    icon: 'bi-trophy-fill',
+    title: 'Nettoyage Evenementiel',
+    icon: 'bi-calendar-check-fill',
     category: 'Evenementiel',
-    image: '6.jpeg',
-    description: 'Dispositif medical complet sur site: ambulance, infirmerie mobile et equipe encadrante.'
+    image: '10.jpeg',
+    description: 'Equipe avant, pendant et apres salons, receptions, conferences et evenements publics.'
+  },
+  {
+    title: 'Contrats Reguliers',
+    icon: 'bi-repeat',
+    category: 'Evenementiel',
+    image: '1.jpeg',
+    description: 'Planning quotidien, hebdomadaire ou mensuel avec suivi, reporting et controle qualite.'
+  },
+  {
+    title: 'Intervention Express',
+    icon: 'bi-lightning-charge-fill',
+    category: 'Evenementiel',
+    image: '2.jpeg',
+    description: 'Equipe mobilisee rapidement pour remise en etat urgente ou preparation d un lieu.'
   }
 ];
 
-const categories = ['Urgence', 'Transport Medical', 'Domicile', 'Paramedical', 'Evenementiel'];
+const categories = ['Domicile', 'Professionnel', 'Technique', 'Evenementiel'];
 
 const faqs = [
-  { q: 'Intervenez-vous 24/7 ?', a: 'Oui, la CMPF assure une disponibilite continue pour les urgences et les besoins planifies.' },
-  { q: 'Proposez-vous transport dialyse et rapatriement ?', a: 'Oui, transport dialyse programme et rapatriement sanitaire avec encadrement medical.' },
-  { q: 'Pouvez-vous couvrir des evenements ?', a: 'Oui, sportifs, culturels, salons et chantiers avec dispositif medical adapte.' },
-  { q: 'Avez-vous des services a domicile ?', a: 'Oui: medecin a domicile, infirmier a domicile, hospitalisation et assistance a l hospitalisation.' }
+  { q: 'Intervenez-vous 7j/7 ?', a: 'Oui, CMPF Nettoyage organise les passages selon vos contraintes, y compris tot le matin, le soir ou le week-end.' },
+  { q: 'Proposez-vous un devis avant intervention ?', a: 'Oui, nous pouvons estimer par telephone ou WhatsApp, puis confirmer apres details ou visite si necessaire.' },
+  { q: 'Pouvez-vous assurer un contrat regulier ?', a: 'Oui, nous mettons en place un planning d entretien pour bureaux, syndics, commerces et residences.' },
+  { q: 'Apportez-vous le materiel et les produits ?', a: 'Oui, nos equipes peuvent venir avec les produits, machines et accessoires adaptes au type de surface.' }
 ];
 
 function ServicesPage() {
@@ -134,16 +106,16 @@ function ServicesPage() {
   return (
     <>
       <Seo
-        title="Services Ambulance et Assistance Medicale"
-        description="Tous les services CMPF: ambulance medicalisee, medecin a domicile, couveuse, dialyse, paramedical, rapatriement sanitaire et evenementiel."
+        title="Services de Nettoyage Professionnel"
+        description="Tous les services CMPF Nettoyage: domicile, bureaux, fin de chantier, vitres, tapis, canapes, espaces communs, desinfection et evenementiel."
         path="/services"
         image={content.hero.backgroundImage}
-        keywords="ambulance medicalisee, transport ambulance, medecin urgence, dialyse, rapatriement sanitaire, infirmier domicile"
+        keywords="service nettoyage, nettoyage domicile, nettoyage bureaux, nettoyage fin de chantier, vitres, tapis, canapes, desinfection"
         structuredData={[
           buildWebPageSchema({
-            name: 'Services CMPF Assistance',
+            name: 'Services CMPF Nettoyage',
             path: '/services',
-            description: 'Catalogue complet des services CMPF Assistance.'
+            description: 'Catalogue complet des services CMPF Nettoyage.'
           }),
           buildBreadcrumbSchema([
             { name: 'Accueil', path: '/' },
@@ -155,18 +127,19 @@ function ServicesPage() {
 
       <section className="inner-hero">
         <div className="container">
-          <h1>Ambulance et Assistance Medicale</h1>
-          <p>Des services complets, rapides et structures pour urgence, domicile, transport et evenementiel.</p>
+          <h1>Services de Nettoyage Professionnel</h1>
+          <p>Des prestations propres, rapides et structurees pour domicile, entreprise, chantier et evenement.</p>
         </div>
       </section>
 
       <section className="section services-intro-creative">
         <div className="container">
           <div className="service-intro-panel">
-            <h2 className="section-title text-start mb-3">Catalogue de Services CMPF</h2>
+            <h2 className="section-title text-start mb-3">Catalogue de Services CMPF Nettoyage</h2>
             <p className="section-copy mb-4">
-              Nos prestations couvrent l urgence medicale, le transport specialise, les soins a domicile, le paramedical
-              et la couverture des evenements. Chaque service est active selon un protocole de qualite, securite et rapidite.
+              Nos prestations couvrent l entretien regulier, le grand nettoyage, la vitrerie, les textiles,
+              la desinfection, les fins de chantier et les besoins professionnels. Chaque intervention est preparee
+              avec un planning clair, une equipe adaptee et un controle qualite.
             </p>
             <div className="transport-chip-wrap">
               {categories.map((item) => (
@@ -227,9 +200,9 @@ function ServicesPage() {
       <section className="section cta-band">
         <div className="container text-center">
           <h2>Besoin d un service specifique ?</h2>
-          <p className="mb-4">Notre equipe vous oriente rapidement vers le service medical le plus adapte.</p>
+          <p className="mb-4">Notre equipe vous oriente rapidement vers la prestation de nettoyage la plus adaptee.</p>
           <Link to="/contact" className="btn btn-emergency" onClick={(event) => { event.preventDefault(); window.dispatchEvent(new Event('cmpf-open-book-panel')); }}>
-            Demander une Prise en Charge
+            Demander un Devis
           </Link>
         </div>
       </section>
@@ -238,6 +211,3 @@ function ServicesPage() {
 }
 
 export default ServicesPage;
-
-
-

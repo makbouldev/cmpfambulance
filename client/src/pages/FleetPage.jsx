@@ -12,33 +12,33 @@ function FleetPage() {
   return (
     <>
       <Seo
-        title="Flotte Ambulance et Transport Medical"
-        description="La flotte CMPF comprend ambulance urgence, ambulance medicalisee et transport specialise avec couverture dans plusieurs villes du Maroc."
+        title="Equipes et Materiel de Nettoyage"
+        description="CMPF Nettoyage mobilise equipes domicile, equipes professionnelles, machines, produits et materiel adaptes dans plusieurs villes du Maroc."
         path="/fleet"
         image={content.fleet[0]?.image}
-        keywords="flotte ambulance, transport medical maroc, ambulance medicalisee, couverture villes cmpf"
+        keywords="materiel nettoyage, equipe nettoyage maroc, machines nettoyage, entretien bureaux, nettoyage chantier"
         structuredData={[
           buildWebPageSchema({
-            name: 'Flotte CMPF Assistance',
+            name: 'Equipes CMPF Nettoyage',
             path: '/fleet',
-            description: 'Moyens de transport medical CMPF et categories de prise en charge.'
+            description: 'Equipes et moyens de nettoyage CMPF pour chaque type d intervention.'
           }),
           buildBreadcrumbSchema([
             { name: 'Accueil', path: '/' },
-            { name: 'Flotte', path: '/fleet' }
+            { name: 'Equipes', path: '/fleet' }
           ])
         ]}
       />
       <section className="inner-hero inner-hero-fleet">
         <div className="container">
-          <h1>Moyens de Transport Medical</h1>
-          <p>Ambulance, transport medicalise et solutions specialisees pour urgence et hors urgence.</p>
+          <h1>Equipes et Materiel de Nettoyage</h1>
+          <p>Agents formes, superviseurs, machines et produits adaptes pour des interventions propres et fiables.</p>
         </div>
       </section>
 
       <section className="section fleet-section">
         <div className="container">
-          <h2 className="section-title">Categories de Prise en Charge</h2>
+          <h2 className="section-title">Categories d Intervention</h2>
           <div className="row g-4 mt-2">
             {content.fleet.map((item, idx) => (
               <motion.div className="col-12 col-lg-4" key={item.name} initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: idx * 0.1 }}>
@@ -73,12 +73,12 @@ function FleetPage() {
           <h2 className="section-title">Moyens et Prestations</h2>
           <div className="table-responsive mt-4">
             <table className="table cmpf-table">
-              <thead><tr><th>Prestation</th><th>Urgence</th><th>Hors Urgence</th><th>Evenement</th></tr></thead>
+              <thead><tr><th>Prestation</th><th>Domicile</th><th>Entreprise</th><th>Evenement</th></tr></thead>
               <tbody>
-                <tr><td>Ambulance Medicalisee</td><td>Oui</td><td>Sur demande</td><td>Oui</td></tr>
-                <tr><td>Ambulance avec Medecin</td><td>Selon gravite</td><td>Possible</td><td>Oui</td></tr>
-                <tr><td>Couveuse / Transport special</td><td>Oui</td><td>Oui</td><td>Selon besoin</td></tr>
-                <tr><td>Transport Dialyse</td><td>Programme</td><td>Oui</td><td>Non</td></tr>
+                <tr><td>Nettoyage regulier</td><td>Oui</td><td>Oui</td><td>Sur demande</td></tr>
+                <tr><td>Grand nettoyage</td><td>Oui</td><td>Oui</td><td>Oui</td></tr>
+                <tr><td>Vitrerie / Facades</td><td>Oui</td><td>Oui</td><td>Selon besoin</td></tr>
+                <tr><td>Desinfection</td><td>Oui</td><td>Oui</td><td>Oui</td></tr>
               </tbody>
             </table>
           </div>
@@ -89,17 +89,17 @@ function FleetPage() {
         <div className="container">
           <h2 className="section-title">Qualite et Fiabilite</h2>
           <div className="row g-4 mt-2">
-            <div className="col-md-4"><div className="number-card h-100"><h4>Confort</h4><p>Ambulanciers qualifies et attentifs au bien-etre du patient.</p></div></div>
-            <div className="col-md-4"><div className="number-card h-100"><h4>Securite</h4><p>Vehicules conventionnes, modernes et equipes pour chaque situation.</p></div></div>
-            <div className="col-md-4"><div className="number-card h-100"><h4>Serenite</h4><p>Accompagnement fiable et continu de jour comme de nuit.</p></div></div>
+            <div className="col-md-4"><div className="number-card h-100"><h4>Proprete</h4><p>Agents attentifs aux details, aux surfaces sensibles et a la finition.</p></div></div>
+            <div className="col-md-4"><div className="number-card h-100"><h4>Securite</h4><p>Produits adaptes, materiel controle et respect des consignes du lieu.</p></div></div>
+            <div className="col-md-4"><div className="number-card h-100"><h4>Serenite</h4><p>Planning clair, equipe ponctuelle et suivi apres intervention si besoin.</p></div></div>
           </div>
         </div>
       </section>
 
       <section className="section cta-band">
         <div className="container text-center">
-          <h2>Besoin d un transport medical adapte ?</h2>
-          <p className="mb-4">La CMPF mobilise rapidement le moyen le plus approprie a votre situation.</p>
+          <h2>Besoin d une equipe de nettoyage adaptee ?</h2>
+          <p className="mb-4">CMPF Nettoyage mobilise rapidement les agents et le materiel selon votre besoin.</p>
           <Link to="/contact" className="btn btn-emergency" onClick={(event) => { event.preventDefault(); window.dispatchEvent(new Event('cmpf-open-book-panel')); }}>Demander une Intervention</Link>
         </div>
       </section>
@@ -108,4 +108,3 @@ function FleetPage() {
 }
 
 export default FleetPage;
-
