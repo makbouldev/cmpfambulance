@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="82" viewBox="0 0 240 82" role="img" aria-labelledby="title desc">
+  <title id="title">Casa Syndic</title>
+  <desc id="desc">Casa Syndic partner logo</desc>
+  <defs>
+    <linearGradient id="csg" x1="8" y1="8" x2="70" y2="72" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#074f85"/>
+      <stop offset="1" stop-color="#29d2c1"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="8" width="58" height="58" rx="14" fill="url(#csg)"/>
+  <path d="M18 51V30l15-10 15 10v21H18Z" fill="#fff"/>
+  <path d="M25 51V36h16v15M30 28h6M45 34h5" stroke="#0b6dab" stroke-width="3" stroke-linecap="round"/>
+  <text x="78" y="35" fill="#073d66" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="800">Casa</text>
+  <text x="78" y="58" fill="#108f98" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700">Syndic</text>
+</svg>

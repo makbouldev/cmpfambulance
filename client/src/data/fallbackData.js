@@ -78,10 +78,18 @@ export const fallbackData = {
   ],
   gallery: ['5.jpeg', '6.jpeg', '7.jpeg', '8.jpeg', '9.jpeg', '10.jpeg'],
   stats: [
-    { label: 'Service Disponible', value: '7j/7' },
-    { label: 'Villes Couvertes', value: '12' },
-    { label: 'Equipes Actives', value: '80+' },
-    { label: 'Satisfaction Clients', value: '98%' }
+    { label: 'Espaces Nettoyes', value: '1200+' },
+    { label: 'Interventions Mensuelles', value: '350+' },
+    { label: 'Agents Formes', value: '80+' },
+    { label: 'Clients Satisfaits', value: '98%' }
+  ],
+  partners: [
+    { name: 'Atlas Bureaux', initials: 'AB', logo: '/partners/atlas-bureaux.svg' },
+    { name: 'Casa Syndic', initials: 'CS', logo: '/partners/casa-syndic.svg' },
+    { name: 'Riad Services', initials: 'RS', logo: '/partners/riad-services.svg' },
+    { name: 'Nova Events', initials: 'NE', logo: '/partners/nova-events.svg' },
+    { name: 'Clinique Al Amal', initials: 'CA', logo: '/partners/clinique-al-amal.svg' },
+    { name: 'Market Pro', initials: 'MP', logo: '/partners/market-pro.svg' }
   ],
   testimonials: [
     {

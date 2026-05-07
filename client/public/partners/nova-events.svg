@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="82" viewBox="0 0 240 82" role="img" aria-labelledby="title desc">
+  <title id="title">Nova Events</title>
+  <desc id="desc">Nova Events partner logo</desc>
+  <defs>
+    <linearGradient id="neg" x1="8" y1="8" x2="70" y2="72" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#063f72"/>
+      <stop offset="1" stop-color="#22cfc3"/>
+    </linearGradient>
+  </defs>
+  <rect x="4" y="8" width="58" height="58" rx="16" fill="url(#neg)"/>
+  <path d="m33 17 5 14 15 1-12 9 4 15-12-9-12 9 4-15-12-9 15-1 5-14Z" fill="#fff"/>
+  <circle cx="33" cy="41" r="6" fill="#0b6dab"/>
+  <text x="78" y="35" fill="#073d66" font-family="Arial, Helvetica, sans-serif" font-size="24" font-weight="800">Nova</text>
+  <text x="78" y="58" fill="#108f98" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="700">Events</text>
+</svg>

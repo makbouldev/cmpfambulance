@@ -50,7 +50,7 @@ function SiteShell() {
   }, [location.pathname]);
 
   useEffect(() => {
-    const selector = '.service-card, .long-card, .partner-card, .faq-item, .fleet-card, .review-google-card, .number-card, .about-premium-card, .timeline-card, .testimonial-card, .blog-card';
+    const selector = '.service-card, .long-card, .partner-card, .faq-item, .fleet-card, .partners-strip, .review-feature-card, .review-note-card, .reviews-quality-strip, .number-card, .about-premium-card, .timeline-card, .testimonial-card, .blog-card';
     const nodes = Array.from(document.querySelectorAll(selector));
 
     nodes.forEach((node) => node.classList.add('scroll-fade-up'));

@@ -1,7 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import Carousel from 'react-bootstrap/Carousel';
 import { useSiteData } from '../context/SiteDataContext';
 import heroImage from '../assets/hero.jpeg';
 import Seo from '../components/Seo';
@@ -32,6 +31,15 @@ const cities = cityAgencies.map((city) => ({
   mobile: city.mobile,
   email: city.email
 }));
+
+const defaultPartners = [
+  { name: 'Atlas Bureaux', initials: 'AB', logo: '/partners/atlas-bureaux.svg' },
+  { name: 'Casa Syndic', initials: 'CS', logo: '/partners/casa-syndic.svg' },
+  { name: 'Riad Services', initials: 'RS', logo: '/partners/riad-services.svg' },
+  { name: 'Nova Events', initials: 'NE', logo: '/partners/nova-events.svg' },
+  { name: 'Clinique Al Amal', initials: 'CA', logo: '/partners/clinique-al-amal.svg' },
+  { name: 'Market Pro', initials: 'MP', logo: '/partners/market-pro.svg' }
+];
 
 function AnimatedStatValue({ value }) {
   const valueRef = useRef(null);
@@ -94,10 +102,13 @@ function AnimatedStatValue({ value }) {
 
 function getStatIcon(label, index) {
   const text = label.toLowerCase();
+  if (text.includes('espace') || text.includes('nettoy')) return 'bi bi-stars';
+  if (text.includes('intervention')) return 'bi bi-calendar-check';
+  if (text.includes('agent') || text.includes('equipe') || text.includes('equipes')) return 'bi bi-people-fill';
+  if (text.includes('client') || text.includes('satisf')) return 'bi bi-hand-thumbs-up-fill';
   if (text.includes('dispatch')) return 'bi bi-activity';
   if (text.includes('response') || text.includes('time')) return 'bi bi-stopwatch-fill';
   if (text.includes('cities') || text.includes('covered')) return 'bi bi-geo-alt-fill';
-  if (text.includes('equipe') || text.includes('equipes')) return 'bi bi-people-fill';
   const fallback = ['bi bi-stars', 'bi bi-shield-check', 'bi bi-graph-up-arrow', 'bi bi-brush-fill'];
   return fallback[index % fallback.length];
 }
@@ -140,6 +151,10 @@ function HomePage() {
 
   const leftFaqs = homeFaqs.slice(0, Math.ceil(homeFaqs.length / 2));
   const rightFaqs = homeFaqs.slice(Math.ceil(homeFaqs.length / 2));
+  const trustedPartners = useMemo(
+    () => (Array.isArray(content.partners) && content.partners.length ? content.partners : defaultPartners),
+    [content.partners]
+  );
 
   const googleStyleReviews = useMemo(
     () =>
@@ -151,6 +166,8 @@ function HomePage() {
       })),
     [content.testimonials]
   );
+  const featuredReview = googleStyleReviews[0];
+  const compactReviews = googleStyleReviews.slice(1);
 
   return (
     <>
@@ -205,7 +222,7 @@ function HomePage() {
         <div className="container">
           <h2 className="section-title">Services de Nettoyage</h2>
           <div className="row g-4 mt-2">
-            {content.services.map((service, idx) => (
+            {content.services.slice(0, 4).map((service, idx) => (
               <motion.div key={service.title} className="col-12 col-md-6 col-lg-3" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.1 }}>
                 <div className="service-card h-100">
                   <i className={`bi ${service.icon} service-icon`} />
@@ -214,6 +231,32 @@ function HomePage() {
                 </div>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section home-about-premium">
+        <div className="container">
+          <h2 className="section-title">Qui Sommes-Nous ?</h2>
+          <p className="home-about-lead text-center">CMPF Nettoyage accompagne les particuliers, entreprises, syndics et commerces avec des prestations propres, flexibles et controlees.</p>
+          <div className="row g-4 mt-2 align-items-stretch">
+            <div className="col-lg-5">
+              <div className="about-photo-wrap h-100">
+                <img
+                  src={resolvedHeroImage}
+                  alt="CMPF Nettoyage service"
+                  className="about-photo"
+                />
+              </div>
+            </div>
+            <div className="col-lg-7">
+              <div className="row g-3">
+                <div className="col-md-6"><div className="about-premium-card h-100"><span className="about-badge">Intervention</span><span className="about-card-icon"><i className="bi bi-shield-check" /></span><h5>Rapide et Structuree</h5><p>Visite, devis, planning et intervention selon la taille du lieu et le niveau de nettoyage demande.</p></div></div>
+                <div className="col-md-6"><div className="about-premium-card h-100"><span className="about-badge">Equipe</span><span className="about-card-icon"><i className="bi bi-people-fill" /></span><h5>Agents Qualifies</h5><p>Mobilisation d agents formes avec superviseur pour les interventions sensibles ou volumineuses.</p></div></div>
+                <div className="col-md-6"><div className="about-premium-card h-100"><span className="about-badge">Domicile</span><span className="about-card-icon"><i className="bi bi-globe2" /></span><h5>Maisons et Appartements</h5><p>Nettoyage regulier, grand menage, cuisine, sanitaires, vitres, tapis et canapes.</p></div></div>
+                <div className="col-md-6"><div className="about-premium-card h-100"><span className="about-badge">Professionnel</span><span className="about-card-icon"><i className="bi bi-cpu-fill" /></span><h5>Couverture Complete</h5><p>Bureaux, commerces, chantiers, syndics et evenements avec controle qualite.</p></div></div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -230,12 +273,10 @@ function HomePage() {
             >
               <h2 className="section-title text-start mb-3">Equipe CMPF Nettoyage: Organisation, Qualite et Fiabilite</h2>
               <p className="section-copy mb-3">
-                Chez CMPF Nettoyage, une equipe de coordination prepare les plannings, affecte les agents,
-                choisit les produits adaptes et suit chaque intervention jusqu a la validation du resultat.
+                CMPF Nettoyage planifie chaque passage, prepare les produits adaptes et controle le resultat.
               </p>
               <p className="section-copy mb-4">
-                Nos agents, superviseurs terrain et responsables qualite travaillent avec methode, discretion
-                et sens du detail pour livrer des espaces propres, sains et agreables.
+                Nos agents interviennent avec methode et discretion pour livrer des espaces propres et agreables.
               </p>
               <div className="row g-3">
                 <div className="col-sm-6">
@@ -309,7 +350,7 @@ function HomePage() {
         <div className="container">
           <div className="stats-header text-center mb-4">
             <h2 className="section-title text-white mb-2">CMPF Nettoyage en Chiffres</h2>
-            <p className="stats-subtitle mb-0">Des indicateurs qui montrent notre couverture, la regularite des equipes et la satisfaction client.</p>
+            <p className="stats-subtitle mb-0">Des indicateurs qui montrent le volume d interventions, la qualite des equipes et la satisfaction client.</p>
           </div>
           <div className="row g-4">
             {content.stats.map((item, index) => (
@@ -338,29 +379,34 @@ function HomePage() {
         </div>
       </section>
 
-      <section className="section home-about-premium">
+      <section className="partners-strip-section" aria-label="Entreprises partenaires">
         <div className="container">
-          <h2 className="section-title">Qui Sommes-Nous ?</h2>
-          <p className="home-about-lead text-center">CMPF Nettoyage accompagne les particuliers, entreprises, syndics et commerces avec des prestations propres, flexibles et controlees.</p>
-          <div className="row g-4 mt-2 align-items-stretch">
-            <div className="col-lg-5">
-              <div className="about-photo-wrap h-100">
-                <img
-                  src={resolvedHeroImage}
-                  alt="CMPF Nettoyage service"
-                  className="about-photo"
-                />
-              </div>
+          <motion.div
+            className="partners-strip"
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.55 }}
+          >
+            <div className="partners-strip-copy">
+              <span>Ils nous font confiance</span>
+              <strong>Societes deja accompagnees</strong>
             </div>
-            <div className="col-lg-7">
-              <div className="row g-3">
-                <div className="col-md-6"><div className="about-premium-card h-100"><span className="about-badge">Intervention</span><span className="about-card-icon"><i className="bi bi-shield-check" /></span><h5>Rapide et Structuree</h5><p>Visite, devis, planning et intervention selon la taille du lieu et le niveau de nettoyage demande.</p></div></div>
-                <div className="col-md-6"><div className="about-premium-card h-100"><span className="about-badge">Equipe</span><span className="about-card-icon"><i className="bi bi-people-fill" /></span><h5>Agents Qualifies</h5><p>Mobilisation d agents formes avec superviseur pour les interventions sensibles ou volumineuses.</p></div></div>
-                <div className="col-md-6"><div className="about-premium-card h-100"><span className="about-badge">Domicile</span><span className="about-card-icon"><i className="bi bi-globe2" /></span><h5>Maisons et Appartements</h5><p>Nettoyage regulier, grand menage, cuisine, sanitaires, vitres, tapis et canapes.</p></div></div>
-                <div className="col-md-6"><div className="about-premium-card h-100"><span className="about-badge">Professionnel</span><span className="about-card-icon"><i className="bi bi-cpu-fill" /></span><h5>Couverture Complete</h5><p>Bureaux, commerces, chantiers, syndics et evenements avec controle qualite.</p></div></div>
-              </div>
+            <div className="partners-logo-row">
+              {trustedPartners.map((partner, index) => (
+                <div className={`partner-logo-chip ${partner.logo ? 'partner-logo-chip-real' : ''}`} key={`${partner.name}-${index}`} aria-label={partner.name}>
+                  {partner.logo ? (
+                    <img src={resolveMediaPath(partner.logo, apiBaseUrl)} alt={partner.name} />
+                  ) : (
+                    <>
+                      <span className="partner-logo-mark">{partner.initials || partner.name?.slice(0, 2)}</span>
+                      <span className="partner-logo-name">{partner.name}</span>
+                    </>
+                  )}
+                </div>
+              ))}
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -368,36 +414,84 @@ function HomePage() {
         <div className="container">
           <h2 className="section-title">Avis Clients</h2>
           <p className="reviews-subtitle">Avec CMPF Nettoyage, chaque espace retrouve une sensation propre, saine et accueillante.</p>
-          <div className="reviews-slider-wrap mt-4">
-            <Carousel indicators controls fade interval={4200} pause="hover">
-              {googleStyleReviews.map((person) => (
-                <Carousel.Item key={person.name}>
-                  <div className="review-google-card">
-                    <div className="review-quote-mark">
-                      <i className="bi bi-quote" />
-                    </div>
-                    <div className="review-header">
-                      <img src={person.avatar} alt={person.name} className="review-avatar" />
-                      <div>
-                        <h6 className="mb-0">{person.name}</h6>
-                        <small className="review-role">{person.role}</small>
-                      </div>
-                      <span className="review-badge">{person.badge}</span>
-                    </div>
-                    <div className="review-stars-row">
-                      <span className="rating-stars"><i className="bi bi-star-fill" /><i className="bi bi-star-fill" /><i className="bi bi-star-fill" /><i className="bi bi-star-fill" /><i className="bi bi-star-fill" /></span>
-                      <small>{person.date}</small>
-                    </div>
-                    <p className="review-text">"{person.text}"</p>
-                    <div className="review-source">
-                      <i className="bi bi-geo-alt-fill me-1" />
-                      Avis verifie de nos clients
+          {featuredReview && (
+            <div className="reviews-studio mt-4">
+              <motion.article
+                className="review-feature-card"
+                initial={{ opacity: 0, y: 26 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.25 }}
+                transition={{ duration: 0.55 }}
+              >
+                <div className="review-feature-top">
+                  <div className="review-person-pill">
+                    <img src={featuredReview.avatar} alt={featuredReview.name} className="review-avatar" />
+                    <div>
+                      <h6>{featuredReview.name}</h6>
+                      <span>{featuredReview.role}</span>
                     </div>
                   </div>
-                </Carousel.Item>
-              ))}
-            </Carousel>
-          </div>
+                  <div className="review-score">
+                    <strong>5.0</strong>
+                    <span>Note client</span>
+                  </div>
+                </div>
+
+                <div className="review-feature-stars">
+                  <i className="bi bi-star-fill" />
+                  <i className="bi bi-star-fill" />
+                  <i className="bi bi-star-fill" />
+                  <i className="bi bi-star-fill" />
+                  <i className="bi bi-star-fill" />
+                </div>
+                <p className="review-feature-text">"{featuredReview.text}"</p>
+
+                <div className="review-feature-footer">
+                  <span><i className="bi bi-patch-check-fill" /> Avis verifie</span>
+                  <span>{featuredReview.date}</span>
+                </div>
+              </motion.article>
+
+              <div className="reviews-side-stack">
+                {compactReviews.map((person, index) => (
+                  <motion.article
+                    className="review-note-card"
+                    key={person.name}
+                    initial={{ opacity: 0, x: 28 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{ duration: 0.5, delay: 0.08 * index }}
+                  >
+                    <div className="review-note-top">
+                      <img src={person.avatar} alt={person.name} className="review-note-avatar" />
+                      <div>
+                        <h6>{person.name}</h6>
+                        <span>{person.role}</span>
+                      </div>
+                      <i className="bi bi-quote review-note-quote" />
+                    </div>
+                    <p>"{person.text}"</p>
+                    <div className="review-note-footer">
+                      <span><i className="bi bi-star-fill" /> 5/5</span>
+                      <small>{person.date}</small>
+                    </div>
+                  </motion.article>
+                ))}
+              </div>
+
+              <motion.div
+                className="reviews-quality-strip"
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.4 }}
+                transition={{ duration: 0.45, delay: 0.12 }}
+              >
+                <span><i className="bi bi-stars" /> Proprete</span>
+                <span><i className="bi bi-clock-history" /> Ponctualite</span>
+                <span><i className="bi bi-shield-check" /> Discretion</span>
+              </motion.div>
+            </div>
+          )}
         </div>
       </section>
 
